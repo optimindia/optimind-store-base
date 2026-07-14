@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NIDO Market — objetos simples para disfrutar más tu casa</title>
-  <meta name="description" content="Objetos útiles, lindos y fáciles de elegir. Armá tu pedido online y coordiná la entrega por WhatsApp.">
+  <!-- Los meta de SEO se hidratan desde store.config.js (app.js). Estos son fallback. -->
+  <title>Tienda Demo — motor de tiendas OptiMind</title>
+  <meta name="description" content="Tienda de demostración. Armá tu pedido online y coordiná la entrega por WhatsApp.">
   <meta name="theme-color" content="#F2F5EA">
-  <link rel="canonical" href="https://ejemplo.optimind.com.ar/">
+  <link rel="canonical" href="https://tienda-demo.optimind.com.ar/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
-  <meta property="og:title" content="NIDO Market — tu casa, un poco más vos">
-  <meta property="og:description" content="Objetos simples, despacho claro y atención humana.">
-  <meta property="og:image" content="assets/brand/og-nido.svg">
-  <meta property="og:url" content="https://ejemplo.optimind.com.ar/">
+  <meta property="og:title" content="Tienda Demo">
+  <meta property="og:description" content="Armá tu pedido online y coordiná la entrega por WhatsApp.">
+  <meta property="og:image" content="assets/brand/og.svg">
+  <meta property="og:url" content="https://tienda-demo.optimind.com.ar/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,12 +26,12 @@
   {
     "@context": "https://schema.org",
     "@type": "Store",
-    "name": "NIDO Market",
-    "description": "Objetos simples para disfrutar más tu casa",
-    "address": { "@type": "PostalAddress", "addressLocality": "Mendoza", "addressCountry": "AR" },
+    "name": "Tienda Demo",
+    "description": "Tienda de demostración del motor OptiMind",
+    "address": { "@type": "PostalAddress", "addressLocality": "Argentina", "addressCountry": "AR" },
     "currenciesAccepted": "ARS",
-    "paymentAccepted": "Transferencia, efectivo coordinado",
-    "url": "https://ejemplo.optimind.com.ar/"
+    "paymentAccepted": "Coordinado por WhatsApp",
+    "url": "https://tienda-demo.optimind.com.ar/"
   }
   </script>
 </head>
@@ -39,15 +40,15 @@
   <div class="grain" aria-hidden="true"></div>
 
   <div class="announcement" role="status">
-    <p>Envío gratis desde <strong>$ 90.000</strong></p>
+    <p>Envío gratis desde <strong data-announcement-free-shipping>$ 90.000</strong></p>
     <span aria-hidden="true">✦</span>
     <p>Atención humana por WhatsApp</p>
   </div>
 
   <header class="site-header" id="site-header">
-    <a class="brand" href="#inicio" aria-label="NIDO Market, ir al inicio">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio de la tienda">
       <img src="assets/brand/logo.svg" width="44" height="44" alt="">
-      <span>NIDO</span>
+      <span data-brand-name>Tienda Demo</span>
     </a>
 
     <nav class="desktop-nav" aria-label="Navegación principal">
@@ -66,40 +67,40 @@
   <main id="contenido">
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> Objetos para todos los días</p>
-        <h1 id="hero-title">Tu casa,<br><em>un poco más vos.</em></h1>
+        <p class="eyebrow"><span></span> Pocas cosas, bien elegidas</p>
+        <h1 id="hero-title">Tu tienda,<br><em>lista para pedir.</em></h1>
         <p class="hero-lead">Elegimos objetos que resuelven algo y se quedan por gusto. Sin catálogo infinito, sin vueltas para comprar.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#tienda">Explorar objetos <span aria-hidden="true">↘</span></a>
+          <a class="button button-primary" href="#tienda">Explorar el catálogo <span aria-hidden="true">↘</span></a>
           <button class="text-button" type="button" data-open-cart>Ver mi ticket <span aria-hidden="true">→</span></button>
         </div>
-        <ul class="trust-inline" aria-label="Ventajas de comprar en NIDO">
+        <ul class="trust-inline" aria-label="Ventajas de comprar acá">
           <li>Compra sin registro</li>
           <li>Cambios simples</li>
           <li>Despacho claro</li>
         </ul>
       </div>
 
-      <div class="hero-ticket-wrap" aria-label="Vista previa de un ticket de NIDO">
+      <div class="hero-ticket-wrap" aria-label="Vista previa de un ticket">
         <div class="ticket-shadow" aria-hidden="true"></div>
         <article class="live-ticket" data-live-ticket>
           <header class="ticket-head">
             <div>
-              <span class="ticket-brand">NIDO</span>
-              <small>mercado cotidiano</small>
+              <span class="ticket-brand" data-ticket-brand>Tienda Demo</span>
+              <small>tu selección</small>
             </div>
-            <span class="ticket-mark" aria-hidden="true">N</span>
+            <span class="ticket-mark" aria-hidden="true">★</span>
           </header>
           <div class="ticket-rule" aria-hidden="true"></div>
-          <p class="ticket-date">HOY · TU CASA</p>
+          <p class="ticket-date">HOY · TU PEDIDO</p>
           <ul class="ticket-preview-lines" aria-hidden="true">
-            <li><span>Lámpara Nube</span><strong>$ 42.900</strong></li>
-            <li><span>Taza Calma</span><strong>$ 15.900</strong></li>
+            <li data-ticket-line-1><span data-ticket-name>Cargando…</span><strong data-ticket-price>$ 0</strong></li>
+            <li data-ticket-line-2><span data-ticket-name>Cargando…</span><strong data-ticket-price>$ 0</strong></li>
             <li class="ticket-preview-pending"><span>Tu próximo favorito</span><strong>······</strong></li>
           </ul>
           <div class="ticket-total">
             <span>Total de ejemplo</span>
-            <strong>$ 58.800</strong>
+            <strong data-ticket-total>$ 0</strong>
           </div>
           <p class="ticket-note">Elegí. Sumá. Mandanos el ticket.</p>
           <div class="ticket-barcode" aria-hidden="true"></div>
@@ -108,17 +109,12 @@
       </div>
     </section>
 
-    <section class="category-strip" aria-label="Categorías destacadas">
-      <button type="button" data-category-shortcut="hogar"><span aria-hidden="true">⌂</span> Hogar</button>
-      <button type="button" data-category-shortcut="cocina"><span aria-hidden="true">◒</span> Cocina</button>
-      <button type="button" data-category-shortcut="tecnologia"><span aria-hidden="true">⌁</span> Tecnología</button>
-      <button type="button" data-category-shortcut="bienestar"><span aria-hidden="true">○</span> Bienestar</button>
-    </section>
+    <section class="category-strip" aria-label="Categorías destacadas" data-category-strip></section>
 
     <section class="shop-section" id="tienda" aria-labelledby="shop-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow"><span></span> Selección NIDO</p>
+          <p class="eyebrow"><span></span> Selección</p>
           <h2 id="shop-title">Pocas cosas.<br>Bien elegidas.</h2>
         </div>
         <p>Una colección breve para que encuentres rápido lo que suma a tu rutina.</p>
@@ -131,13 +127,7 @@
           <input id="product-search" type="search" placeholder="Buscar por nombre o uso" autocomplete="off">
         </label>
 
-        <div class="filter-chips" role="group" aria-label="Filtrar por categoría">
-          <button class="is-active" type="button" data-category="all" aria-pressed="true">Todo</button>
-          <button type="button" data-category="hogar" aria-pressed="false">Hogar</button>
-          <button type="button" data-category="cocina" aria-pressed="false">Cocina</button>
-          <button type="button" data-category="tecnologia" aria-pressed="false">Tecnología</button>
-          <button type="button" data-category="bienestar" aria-pressed="false">Bienestar</button>
-        </div>
+        <div class="filter-chips" role="group" aria-label="Filtrar por categoría" data-filter-chips></div>
 
         <label class="sort-field" for="product-sort">
           <span>Ordenar</span>
@@ -151,7 +141,7 @@
       </div>
 
       <div class="catalog-meta">
-        <p><strong data-result-count>8</strong> objetos encontrados</p>
+        <p><strong data-result-count>0</strong> productos encontrados</p>
         <button type="button" data-clear-filters hidden>Limpiar búsqueda</button>
       </div>
 
@@ -228,7 +218,7 @@
           <p>Sí. El costo y el plazo dependen de tu localidad. Lo confirmamos en el chat antes de cerrar la compra.</p>
         </details>
         <details>
-          <summary>¿Puedo retirar en Mendoza?<span aria-hidden="true">+</span></summary>
+          <summary>¿Puedo retirar en persona?<span aria-hidden="true">+</span></summary>
           <p>Sí, podés elegir retiro coordinado al armar el pedido y acordamos día y franja horaria.</p>
         </details>
         <details>
@@ -239,20 +229,20 @@
     </section>
 
     <section class="closing-section" aria-labelledby="closing-title">
-      <p>Tu casa no necesita más cosas.</p>
-      <h2 id="closing-title">Necesita las <em>correctas.</em></h2>
+      <p>No necesitás más opciones.</p>
+      <h2 id="closing-title">Necesitás las <em>correctas.</em></h2>
       <a class="button button-primary" href="#tienda">Encontrar la próxima <span aria-hidden="true">↘</span></a>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-brand">
-      <a class="brand" href="#inicio"><img src="assets/brand/logo.svg" width="44" height="44" alt=""><span>NIDO</span></a>
-      <p>Objetos simples para disfrutar más tu casa.</p>
+      <a class="brand" href="#inicio"><img src="assets/brand/logo.svg" width="44" height="44" alt=""><span data-brand-name>Tienda Demo</span></a>
+      <p data-store-descriptor>Tienda de demostración del motor OptiMind.</p>
     </div>
     <div>
       <h2>Tienda</h2>
-      <a href="#tienda">Todos los objetos</a>
+      <a href="#tienda">Todos los productos</a>
       <a href="#como-comprar">Cómo comprar</a>
       <a href="#preguntas">Preguntas</a>
     </div>
@@ -265,16 +255,16 @@
     </div>
     <div>
       <h2>Hablemos</h2>
-      <a href="https://wa.me/5492616027055" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="mailto:hola@nido.market">hola@nido.market</a>
-      <span>Mendoza, Argentina</span>
+      <a data-store-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a data-store-email href="#" data-store-email-text="false">Email</a>
+      <span data-store-location>Argentina</span>
     </div>
-    <p class="footer-bottom">© 2026 NIDO Market · Tienda demostrativa de OptiMind IA</p>
+    <p class="footer-bottom" data-store-copyright>© Tienda creada con OptiMind IA</p>
   </footer>
 
   <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-product-name">
     <button class="icon-button dialog-close" type="button" data-close-product aria-label="Cerrar ficha">×</button>
-    <div class="dialog-product-media"><img data-dialog-image src="assets/products/lamp-nube.svg" width="800" height="800" alt=""></div>
+    <div class="dialog-product-media"><img data-dialog-image src="assets/products/lamp.svg" width="800" height="800" alt=""></div>
     <div class="dialog-product-copy">
       <p class="product-category" data-dialog-category></p>
       <h2 id="dialog-product-name" data-dialog-name></h2>
@@ -297,7 +287,7 @@
     <div class="cart-backdrop" data-close-cart></div>
     <div class="cart-panel">
       <header class="cart-header">
-        <div><p>Tu selección</p><h2 id="cart-title">Ticket NIDO</h2></div>
+        <div><p>Tu selección</p><h2 id="cart-title" data-store-cart-title>Ticket</h2></div>
         <button class="icon-button" type="button" data-close-cart aria-label="Cerrar ticket">×</button>
       </header>
       <div class="shipping-progress" data-shipping-progress>
@@ -308,7 +298,7 @@
       <div class="cart-empty" data-cart-empty>
         <span aria-hidden="true">⌁</span>
         <h3>Tu ticket está esperando.</h3>
-        <p>Sumá un objeto y va a aparecer acá.</p>
+        <p>Sumá un producto y va a aparecer acá.</p>
         <button class="button button-secondary" type="button" data-close-cart data-scroll-shop>Explorar la tienda</button>
       </div>
       <footer class="cart-footer" data-cart-footer hidden>
@@ -325,7 +315,7 @@
     <div class="checkout-layout">
       <div class="checkout-copy">
         <p class="eyebrow"><span></span> Último paso</p>
-        <h2 id="checkout-title">¿A dónde llevamos tu NIDO?</h2>
+        <h2 id="checkout-title">¿A dónde llevamos tu pedido?</h2>
         <p>Usamos estos datos únicamente para preparar el mensaje de tu pedido.</p>
       </div>
       <form id="checkout-form" novalidate>
@@ -399,7 +389,7 @@
   <div class="live-region sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div>
 
   <noscript>
-    <div class="noscript">Necesitás habilitar JavaScript para armar el pedido. También podés escribirnos directamente por WhatsApp al +54 9 261 602-7055.</div>
+    <div class="noscript" data-noscript-whatsapp>Necesitás habilitar JavaScript para armar el pedido.</div>
   </noscript>
 
   <script src="store.config.js"></script>
