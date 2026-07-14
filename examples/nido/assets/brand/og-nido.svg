@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">NIDO Market</title><desc id="desc">Objetos simples para disfrutar más tu casa</desc>
+  <rect width="1200" height="630" fill="#F2F5EA"/>
+  <path d="M0 512C240 410 390 575 640 470s398-46 560-146v306H0Z" fill="#D8F45A"/>
+  <rect x="80" y="70" width="98" height="98" rx="28" fill="#173027"/>
+  <path d="M103 142V96h14l31 26V96h13v46h-13l-31-26v26h-14Z" fill="#D8F45A"/>
+  <circle cx="161" cy="92" r="10" fill="#FF623E"/>
+  <text x="80" y="290" font-family="Arial, sans-serif" font-size="108" font-weight="700" fill="#173027">Tu casa,</text>
+  <text x="80" y="398" font-family="Arial, sans-serif" font-size="108" font-weight="700" fill="#3557F4">un poco más vos.</text>
+  <text x="84" y="470" font-family="Arial, sans-serif" font-size="32" fill="#65736A">Objetos simples · despacho claro · atención humana</text>
+</svg>
