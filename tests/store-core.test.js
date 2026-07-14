@@ -6,25 +6,25 @@ const Core = require('../store-core.js');
 
 const sampleProducts = [
   {
-    id: 'lamp-nube',
-    slug: 'lampara-nube',
-    name: 'Lámpara Nube',
+    id: 'lamp',
+    slug: 'lampara',
+    name: 'Lámpara',
     category: 'hogar',
     price: 39900,
     tags: ['luz', 'mesa'],
     stockStatus: 'in_stock'
   },
   {
-    id: 'mug-calma',
-    slug: 'taza-calma',
-    name: 'Taza Calma',
+    id: 'mug',
+    slug: 'taza',
+    name: 'Taza',
     category: 'cocina',
     price: 12900,
     tags: ['cerámica'],
     stockStatus: 'in_stock'
   },
   {
-    id: 'lamp-nube',
+    id: 'lamp',
     slug: 'duplicado',
     name: 'Duplicado',
     category: 'hogar',
@@ -39,29 +39,29 @@ test('normaliza el catálogo y descarta productos inválidos o duplicados', () =
   const result = Core.normalizeProducts(sampleProducts);
 
   assert.equal(result.length, 2);
-  assert.deepEqual(result.map((product) => product.id), ['lamp-nube', 'mug-calma']);
+  assert.deepEqual(result.map((product) => product.id), ['lamp', 'mug']);
   assert.equal(result[0].stockStatus, 'in_stock');
 });
 
 test('busca sin distinguir mayúsculas ni tildes', () => {
   const products = Core.normalizeProducts(sampleProducts);
 
-  assert.deepEqual(Core.searchProducts(products, 'LAMPARA').map((product) => product.id), ['lamp-nube']);
-  assert.deepEqual(Core.searchProducts(products, 'ceramica').map((product) => product.id), ['mug-calma']);
+  assert.deepEqual(Core.searchProducts(products, 'LAMPARA').map((product) => product.id), ['lamp']);
+  assert.deepEqual(Core.searchProducts(products, 'ceramica').map((product) => product.id), ['mug']);
 });
 
 test('filtra por categoría y ordena por precio ascendente', () => {
   const products = Core.normalizeProducts(sampleProducts);
   const result = Core.filterAndSort(products, { category: 'hogar', sort: 'price-asc' });
 
-  assert.deepEqual(result.map((product) => product.id), ['lamp-nube']);
+  assert.deepEqual(result.map((product) => product.id), ['lamp']);
 });
 
 test('ordena por nombre con reglas del español', () => {
   const products = Core.normalizeProducts(sampleProducts);
   const result = Core.filterAndSort(products, { category: 'all', sort: 'name-asc' });
 
-  assert.deepEqual(result.map((product) => product.name), ['Lámpara Nube', 'Taza Calma']);
+  assert.deepEqual(result.map((product) => product.name), ['Lámpara', 'Taza']);
 });
 
 const commerceProducts = Core.normalizeProducts([
@@ -147,7 +147,7 @@ test('calcula subtotal, ahorro y umbral de envío gratis', () => {
 });
 
 test('captura atribución UTM y fbclid desde una URL', () => {
-  const attribution = Core.captureAttribution('https://nido.test/?utm_source=instagram&utm_medium=paid_social&utm_campaign=verano&utm_content=lampara&fbclid=abc123');
+  const attribution = Core.captureAttribution('https://demo.test/?utm_source=instagram&utm_medium=paid_social&utm_campaign=verano&utm_content=lampara&fbclid=abc123');
 
   assert.deepEqual(attribution, {
     source: 'instagram',
@@ -168,11 +168,11 @@ test('genera un mensaje de WhatsApp completo y legible', () => {
     totals,
     customer: { name: 'Martina', city: 'Godoy Cruz', deliveryLabel: 'Envío a domicilio', address: 'San Martín 123', note: '' },
     attribution: { source: 'instagram', campaign: 'verano' },
-    config: { storeName: 'NIDO', intro: 'Hola NIDO, quiero hacer este pedido:', locale: 'es-AR', currency: 'ARS' },
-    orderId: 'NID-7K3M2'
+    config: { storeName: 'Demo', intro: 'Hola, quiero hacer este pedido:', locale: 'es-AR', currency: 'ARS' },
+    orderId: 'DEM-7K3M2'
   });
 
-  assert.match(message, /Pedido: NID-7K3M2/);
+  assert.match(message, /Pedido: DEM-7K3M2/);
   assert.match(message, /2 × Lámpara — Arena/);
   assert.match(message, /Subtotal: \$ 80\.000/);
   assert.match(message, /Localidad: Godoy Cruz/);
@@ -180,8 +180,8 @@ test('genera un mensaje de WhatsApp completo y legible', () => {
 });
 
 test('construye la URL de WhatsApp y rechaza un mensaje vacío', () => {
-  const url = Core.buildWhatsAppUrl('+54 9 261 602-7055', 'Hola NIDO');
+  const url = Core.buildWhatsAppUrl('+54 9 11 0000-0000', 'Hola Demo');
 
-  assert.equal(url, 'https://wa.me/5492616027055?text=Hola%20NIDO');
-  assert.throws(() => Core.buildWhatsAppUrl('5492616027055', ''), /mensaje/i);
+  assert.equal(url, 'https://wa.me/5491100000000?text=Hola%20Demo');
+  assert.throws(() => Core.buildWhatsAppUrl('5491100000000', ''), /mensaje/i);
 });
