@@ -6,10 +6,14 @@
   const Analytics = window.StoreAnalytics;
   if (!config || !Core || !Analytics || !Array.isArray(window.STORE_PRODUCTS)) {
     document.documentElement.classList.add('store-error');
-    console.error('[NIDO] No se pudo iniciar la tienda: faltan dependencias.');
+    console.error('No se pudo iniciar la tienda: faltan dependencias.');
     return;
   }
 
+  const categoryLabels = (config.categories || []).reduce((acc, cat) => {
+    acc[cat.id] = cat.label;
+    return acc;
+  }, {});
   const products = Core.normalizeProducts(window.STORE_PRODUCTS);
   const productGrid = document.getElementById('product-grid');
   const productTemplate = document.getElementById('product-card-template');
@@ -46,8 +50,161 @@
   let submitLocked = false;
 
   function categoryLabel(category) {
-    const labels = { hogar: 'Hogar', cocina: 'Cocina', tecnologia: 'Tecnología', bienestar: 'Bienestar' };
-    return labels[category] || 'Selección';
+    return categoryLabels[category] || (category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Selección');
+  }
+
+  function setText(selector, value) {
+    document.querySelectorAll(selector).forEach((el) => { el.textContent = value; });
+  }
+  function setMeta(attr, key, value) {
+    let el = document.head.querySelector('meta[' + attr + '="' + key + '"]');
+    if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+    el.setAttribute('content', value);
+  }
+  function setLink(rel, href) {
+    let el = document.head.querySelector('link[rel="' + rel + '"]');
+    if (!el) { el = document.createElement('link'); el.setAttribute('rel', rel); document.head.appendChild(el); }
+    el.setAttribute('href', href);
+  }
+
+  // Render de los chips de filtro y el atajo de categorías desde config.categories.
+  // Así, al agregar/sacar categorías en config, la UI se actualiza sola.
+  function renderCategoryChips() {
+    const categories = config.categories || [];
+    const chips = document.querySelector('[data-filter-chips]');
+    const strip = document.querySelector('[data-category-strip]');
+    if (chips) {
+      chips.replaceChildren();
+      const all = document.createElement('button');
+      all.type = 'button';
+      all.dataset.category = 'all';
+      all.className = 'is-active';
+      all.setAttribute('aria-pressed', 'true');
+      all.textContent = 'Todo';
+      chips.appendChild(all);
+      categories.forEach((cat) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.dataset.category = cat.id;
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = cat.label;
+        chips.appendChild(b);
+      });
+    }
+    if (strip) {
+      strip.replaceChildren();
+      categories.forEach((cat) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.dataset.categoryShortcut = cat.id;
+        const icon = document.createElement('span');
+        icon.setAttribute('aria-hidden', 'true');
+        icon.textContent = cat.icon || '';
+        b.append(icon, document.createTextNode(' ' + cat.label));
+        strip.appendChild(b);
+      });
+    }
+  }
+
+  // Hidratación: inyecta los datos del config en el DOM (SEO, marca, footer,
+  // noscript, JSON-LD, preview del ticket y toggles de features). Lo que es
+  // piel visual (copy del hero, secciones) se rehace por cliente en el HTML/CSS.
+  function hydrateStoreMeta() {
+    const store = config.store;
+    const seo = config.seo || {};
+    const legal = config.legal || {};
+    if (seo.title) document.title = seo.title;
+    if (seo.description) setMeta('name', 'description', seo.description);
+    if (seo.canonical) setLink('canonical', seo.canonical);
+    if (seo.ogTitle) setMeta('property', 'og:title', seo.ogTitle);
+    if (seo.ogDescription) setMeta('property', 'og:description', seo.ogDescription);
+    if (seo.ogImage) setMeta('property', 'og:image', seo.ogImage);
+    if (seo.canonical) setMeta('property', 'og:url', seo.canonical);
+    if (seo.themeColor) setMeta('name', 'theme-color', seo.themeColor);
+
+    const ld = document.querySelector('script[type="application/ld+json"]');
+    if (ld) {
+      ld.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Store',
+        name: store.name,
+        description: store.descriptor || seo.description || '',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: legal.city || store.location || '',
+          addressCountry: legal.country || 'AR'
+        },
+        currenciesAccepted: config.locale.currency,
+        paymentAccepted: 'Coordinado por WhatsApp',
+        url: seo.canonical || store.url || ''
+      });
+    }
+
+    setText('[data-brand-name]', store.shortName || store.name);
+    setText('[data-store-name]', store.name);
+    setText('[data-store-descriptor]', store.descriptor || '');
+    setText('[data-store-location]', store.location || '');
+    setText('[data-store-cart-title]', 'Ticket ' + (store.shortName || store.name));
+
+    document.querySelectorAll('[data-store-whatsapp]').forEach((el) => {
+      el.setAttribute('href', 'https://wa.me/' + store.whatsapp);
+    });
+    document.querySelectorAll('[data-store-email]').forEach((el) => {
+      el.setAttribute('href', 'mailto:' + store.email);
+      if (el.dataset.storeEmailText !== 'false') el.textContent = store.email;
+    });
+
+    const copyright = document.querySelector('[data-store-copyright]');
+    if (copyright) {
+      const year = new Date().getFullYear();
+      copyright.textContent = '© ' + year + ' ' + store.name + ' · Tienda creada con OptiMind IA';
+    }
+    const noscript = document.querySelector('[data-noscript-whatsapp]');
+    if (noscript) {
+      noscript.textContent = 'Necesitás habilitar JavaScript para armar el pedido. También podés escribirnos por WhatsApp al ' + store.whatsapp + '.';
+    }
+    const freeShip = document.querySelector('[data-announcement-free-shipping]');
+    if (freeShip && config.commerce.freeShippingFrom) {
+      freeShip.textContent = money(config.commerce.freeShippingFrom);
+    }
+
+    // Preview del ticket del hero con los primeros productos del catálogo.
+    const preview = products.slice(0, 2);
+    let total = 0;
+    const line1 = document.querySelector('[data-ticket-line-1]');
+    const line2 = document.querySelector('[data-ticket-line-2]');
+    if (line1 && preview[0]) {
+      line1.querySelector('[data-ticket-name]').textContent = preview[0].name;
+      line1.querySelector('[data-ticket-price]').textContent = money(preview[0].price);
+      total += preview[0].price;
+    }
+    if (line2 && preview[1]) {
+      line2.querySelector('[data-ticket-name]').textContent = preview[1].name;
+      line2.querySelector('[data-ticket-price]').textContent = money(preview[1].price);
+      total += preview[1].price;
+    }
+    const totalEl = document.querySelector('[data-ticket-total]');
+    if (totalEl && preview.length) totalEl.textContent = money(total);
+    setText('[data-ticket-brand]', store.shortName || store.name);
+
+    // Toggles de features.
+    const features = config.features || {};
+    if (!features.search) {
+      const sf = document.querySelector('.search-field');
+      if (sf) sf.classList.add('is-hidden');
+    }
+    if (!features.filters) {
+      const fc = document.querySelector('[data-filter-chips]');
+      if (fc) fc.classList.add('is-hidden');
+      const cs = document.querySelector('[data-category-strip]');
+      if (cs) cs.classList.add('is-hidden');
+    }
+    if (!features.freeShippingBar) {
+      const an = document.querySelector('.announcement');
+      if (an) an.classList.add('is-hidden');
+      const sp = document.querySelector('[data-shipping-progress]');
+      if (sp) sp.classList.add('is-hidden');
+    }
   }
 
   function announce(message) {
@@ -654,6 +811,8 @@
     });
   }
 
+  renderCategoryChips();
+  hydrateStoreMeta();
   Analytics.init(config.analytics);
   state.attribution = loadAttribution();
   state.cart = loadCart();
