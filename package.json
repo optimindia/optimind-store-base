@@ -1,0 +1,9 @@
+{
+  "name": "tienda-generica-optimind",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Motor de tienda estática para campañas de Meta Ads y pedidos por WhatsApp",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}
