@@ -2,13 +2,13 @@
 <html lang="es-AR">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Botón de arrepentimiento — NIDO Market</title>
+  <title>Botón de arrepentimiento — Tienda Demo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="../assets/brand/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="legal.css">
 </head>
 <body>
-  <header class="legal-header"><a class="brand" href="../index.html"><img src="../assets/brand/logo.svg" alt=""><span>NIDO</span></a><a class="back-link" href="../index.html">← Volver a la tienda</a></header>
+  <header class="legal-header"><a class="brand" href="../index.html"><img src="../assets/brand/logo.svg" alt=""><span data-brand-name>Tienda Demo</span></a><a class="back-link" href="../index.html">← Volver a la tienda</a></header>
   <main class="legal-main">
     <p class="legal-kicker">Acceso directo</p><h1>Botón de arrepentimiento</h1><p class="updated">No requiere cuenta ni pasos previos</p>
     <div class="legal-grid">
@@ -24,28 +24,32 @@
           </form>
         </section>
         <section id="despues"><h2>Qué sucede después</h2><p>El comercio recibe el código que comienza con <strong>ARR-</strong>, identifica el pedido y debe informar el tratamiento de la solicitud por el mismo canal. Conservá el chat y el código.</p></section>
-        <section id="alternativas"><h2>Canales directos</h2><p>Si el formulario no funciona, podés iniciar la solicitud sin usarlo:</p><div class="direct-links"><a href="https://wa.me/5492616027055?text=Quiero%20solicitar%20el%20arrepentimiento%20de%20una%20compra">Abrir WhatsApp</a><a href="mailto:hola@nido.market?subject=Solicitud%20de%20arrepentimiento">Enviar email</a></div></section>
+        <section id="alternativas"><h2>Canales directos</h2><p>Si el formulario no funciona, podés iniciar la solicitud sin usarlo:</p><div class="direct-links"><a data-store-whatsapp href="#" data-store-email-text="false" id="regret-wa-direct">Abrir WhatsApp</a><a data-store-email href="#" data-store-email-text="false" id="regret-mail-direct">Enviar email</a></div></section>
         <aside class="review-note"><strong>Revisión profesional</strong><span>Esta herramienta genera un canal directo, pero el comercio debe adaptar procedimiento, registro, respuesta y excepciones a la normativa y a su operación real antes de publicar.</span></aside>
       </article>
     </div>
   </main>
-  <footer class="legal-footer">NIDO Market · Tienda demostrativa de OptiMind IA · <a href="arrepentimiento.html">Botón de arrepentimiento</a></footer>
+  <footer class="legal-footer"><span data-store-copyright>© Tienda creada con OptiMind IA</span> · <a href="arrepentimiento.html">Botón de arrepentimiento</a></footer>
+  <script src="../store.config.js"></script>
+  <script src="legal.js"></script>
   <script>
     document.getElementById('regret-form').addEventListener('submit', function (event) {
       event.preventDefault();
-      const order = document.getElementById('regret-order');
-      const name = document.getElementById('regret-name');
-      const detail = document.getElementById('regret-detail');
-      const status = document.getElementById('regret-status');
+      var config = window.STORE_CONFIG || {};
+      var store = config.store || {};
+      var order = document.getElementById('regret-order');
+      var name = document.getElementById('regret-name');
+      var detail = document.getElementById('regret-detail');
+      var status = document.getElementById('regret-status');
       if (!order.value.trim() || !name.value.trim()) {
         status.textContent = 'Completá el número de pedido y el nombre usado en la compra.';
         (!order.value.trim() ? order : name).focus();
         return;
       }
-      const day = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-      const token = Math.random().toString(36).slice(2, 7).toUpperCase().padEnd(5, '0');
-      const requestId = 'ARR-' + day + '-' + token;
-      const lines = [
+      var day = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      var token = Math.random().toString(36).slice(2, 7).toUpperCase().padEnd(5, '0');
+      var requestId = 'ARR-' + day + '-' + token;
+      var lines = [
         'Quiero solicitar el arrepentimiento de una compra.',
         '', 'Solicitud: ' + requestId,
         'Pedido: ' + order.value.trim(),
@@ -53,8 +57,8 @@
       ];
       if (detail.value.trim()) lines.push('Detalle: ' + detail.value.trim());
       status.textContent = 'Solicitud ' + requestId + ' lista. Conservá este código.';
-      const target = 'https://wa.me/5492616027055?text=' + encodeURIComponent(lines.join('\n'));
-      const opened = window.open(target, '_blank');
+      var target = 'https://wa.me/' + store.whatsapp + '?text=' + encodeURIComponent(lines.join('\n'));
+      var opened = window.open(target, '_blank');
       if (opened) opened.opener = null; else window.location.assign(target);
     });
   </script>
