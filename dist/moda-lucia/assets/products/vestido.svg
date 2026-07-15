@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title">
+  <title id="title">Vestido Mora</title>
+  <rect width="800" height="800" rx="56" fill="#F6F4F1"/>
+  <ellipse cx="400" cy="700" rx="200" ry="28" fill="#1B1714" opacity=".10"/>
+  <path d="M280 210c35-25 90-40 120-40s85 15 120 40l-20 60c-25-18-60-28-100-28s-75 10-100 28l-20-60z" fill="#2B3A4E"/>
+  <path d="M300 270h200l35 220-135 80-135-80 35-220z" fill="#BFA474"/>
+  <path d="M335 270l35 300m60-300l-35 300" stroke="#2B3A4E" stroke-width="8" opacity=".18"/>
+  <path d="M300 270c-15 30-25 80-25 140" stroke="#2B3A4E" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M500 270c15 30 25 80 25 140" stroke="#2B3A4E" stroke-width="10" fill="none" stroke-linecap="round"/>
+</svg>

@@ -5,6 +5,7 @@
   "description": "Motor de tienda estática duplicable para campañas de Meta Ads y pedidos por WhatsApp",
   "scripts": {
     "test": "node --test tests/*.test.js",
+    "build": "node scripts/build.js",
     "create-store": "node scripts/create-store.js",
     "validate": "node scripts/validate.js",
     "check": "node --check src/app.js && node --check src/analytics.js && node --check src/store-core.js && node --check legal/legal.js"

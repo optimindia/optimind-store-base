@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" role="img" aria-labelledby="title">
+  <title id="title">Todo en Casa</title>
+  <rect width="88" height="88" rx="18" fill="#3E5641"/>
+  <path d="M44 22L22 42v28h20V52h4v18h20V42L44 22z" fill="#F5F3EF"/>
+  <circle cx="70" cy="22" r="10" fill="#D4A056"/>
+</svg>

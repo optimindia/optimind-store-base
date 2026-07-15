@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Todo en Casa</title>
+  <desc id="desc">Objetos útiles para el día a día</desc>
+  <rect width="1200" height="630" fill="#F5F3EF"/>
+  <rect x="760" y="80" width="340" height="340" rx="160" fill="#D4A056" opacity=".15"/>
+  <rect x="900" y="260" width="220" height="220" rx="110" fill="#3E5641" opacity=".10"/>
+  <rect x="80" y="70" width="98" height="98" rx="18" fill="#3E5641"/>
+  <path d="M129 104l-22 16v20h20v-12h4v12h20v-20l-22-16z" fill="#F5F3EF"/>
+  <text x="80" y="300" font-family="'Space Grotesk', sans-serif" font-size="104" font-weight="500" fill="#1A1A1A">Todo en Casa.</text>
+  <text x="80" y="400" font-family="'Space Grotesk', sans-serif" font-size="72" font-weight="400" fill="#3E5641">Objetos útiles para el día a día.</text>
+  <text x="84" y="470" font-family="'IBM Plex Mono', monospace" font-size="26" fill="#6E6E6E">Catálogo claro · envío simple · atención humana</text>
+</svg>

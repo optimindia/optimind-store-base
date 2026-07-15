@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title">
+  <title id="title">Cuenco de Cerámica</title>
+  <rect width="800" height="800" rx="56" fill="#EDE8DF"/>
+  <ellipse cx="400" cy="680" rx="200" ry="28" fill="#2B211E" opacity=".10"/>
+  <path d="M240 360c0-110 70-190 160-190s160 80 160 190H240z" fill="#8C4B3A"/>
+  <ellipse cx="400" cy="360" rx="160" ry="50" fill="#D9CFC0"/>
+  <path d="M280 400c20 70 60 120 120 120s100-50 120-120" fill="none" stroke="#2E3A59" stroke-width="6" opacity=".25"/>
+  <circle cx="400" cy="360" r="70" fill="#2E3A59" opacity=".15"/>
+</svg>
