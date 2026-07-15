@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title">
+  <title id="title">Campera Norte</title>
+  <rect width="800" height="800" rx="56" fill="#EADFD4"/>
+  <ellipse cx="400" cy="690" rx="230" ry="32" fill="#1B1714" opacity=".10"/>
+  <path d="M240 250c30-45 80-70 160-70s130 25 160 70l-30 360H270L240 250z" fill="#2B3A4E"/>
+  <path d="M400 180v440" stroke="#1B1714" stroke-width="10" opacity=".15"/>
+  <path d="M270 250l-40 90h40" stroke="#BFA474" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M530 250l40 90h-40" stroke="#BFA474" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="400" cy="360" r="14" fill="#BFA474"/>
+  <path d="M320 320h160" stroke="#BFA474" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+</svg>

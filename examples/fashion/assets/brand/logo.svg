@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" role="img" aria-labelledby="title">
+  <title id="title">Moda Lucía</title>
+  <rect width="88" height="88" rx="50%" fill="#2B3A4E"/>
+  <path d="M36 28c8 0 16-6 16-14H20c0 8 8 14 16 14z" fill="#BFA474"/>
+  <path d="M36 28v10" stroke="#BFA474" stroke-width="4" stroke-linecap="round"/>
+  <path d="M18 58c10-20 30-28 36-28s26 8 36 28" stroke="#F6F4F1" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>

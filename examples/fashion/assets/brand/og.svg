@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Moda Lucía</title>
+  <desc id="desc">Indumentaria femenina pensada para el día a día</desc>
+  <rect width="1200" height="630" fill="#F6F4F1"/>
+  <circle cx="960" cy="180" r="220" fill="#EADFD4" opacity="0.5"/>
+  <circle cx="1050" cy="320" r="140" fill="#BFA474" opacity="0.22"/>
+  <rect x="80" y="70" width="98" height="98" rx="50%" fill="#2B3A4E"/>
+  <path d="M105 128c6 0 13-5 13-11H92c0 6 7 11 13 11z" fill="#BFA474"/>
+  <path d="M105 128v8" stroke="#BFA474" stroke-width="3" stroke-linecap="round"/>
+  <path d="M93 154c5-12 18-20 24-20s19 8 24 20" stroke="#F6F4F1" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="80" y="290" font-family="Georgia, 'Bodoni Moda', serif" font-size="108" font-weight="400" fill="#1B1714">Moda Lucía</text>
+  <text x="80" y="398" font-family="Georgia, 'Bodoni Moda', serif" font-size="96" font-style="italic" fill="#2B3A4E">piezas bien elegidas.</text>
+  <text x="84" y="470" font-family="'IBM Plex Mono', monospace" font-size="28" fill="#7A716A">Colección clara · envío simple · atención personalizada</text>
+</svg>

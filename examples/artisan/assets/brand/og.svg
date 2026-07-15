@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Raíces del Norte</title>
+  <desc id="desc">Artesanías de Jujuy, hechas a mano</desc>
+  <rect width="1200" height="630" fill="#EDE8DF"/>
+  <polygon points="1000,80 1150,220 1000,360 850,220" fill="#D4A056" opacity=".18"/>
+  <polygon points="900,260 1050,400 900,540 750,400" fill="#8C4B3A" opacity=".12"/>
+  <rect x="80" y="70" width="98" height="98" rx="16" fill="#8C4B3A"/>
+  <path d="M129 104l-22 18 22 18 22-18-22-18z" fill="#EDE8DF"/>
+  <path d="M129 104v36M107 122h44" stroke="#2E3A59" stroke-width="2"/>
+  <text x="80" y="300" font-family="'Alegreya', Georgia, serif" font-size="104" font-weight="500" fill="#2B211E">Raíces del Norte.</text>
+  <text x="80" y="405" font-family="'Alegreya', Georgia, serif" font-size="76" font-style="italic" fill="#8C4B3A">Artesanías de Jujuy.</text>
+  <text x="84" y="470" font-family="'IBM Plex Mono', monospace" font-size="26" fill="#7D7169">Hecho a mano · envío cuidadoso · atención personalizada</text>
+</svg>

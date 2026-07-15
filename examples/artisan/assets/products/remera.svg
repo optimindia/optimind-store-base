@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title">
+  <title id="title">Remera Lua</title>
+  <rect width="800" height="800" rx="56" fill="#EADFD4"/>
+  <ellipse cx="400" cy="690" rx="220" ry="30" fill="#1B1714" opacity=".10"/>
+  <path d="M245 230c25-40 70-65 155-65s130 25 155 65l55 80-65 38-45-68v310H255V280l-45 68-65-38 55-80z" fill="#FFFFFF" stroke="#1B1714" stroke-width="14"/>
+  <path d="M255 280h110v240H255z" fill="#F6F4F1" opacity=".5"/>
+  <path d="M435 280h110v240H435z" fill="#F6F4F1" opacity=".5"/>
+  <path d="M330 310h140" stroke="#BFA474" stroke-width="6" stroke-linecap="round" opacity=".6"/>
+</svg>

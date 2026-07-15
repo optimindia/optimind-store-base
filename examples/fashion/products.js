@@ -1,0 +1,7 @@
+'use strict';
+
+window.STORE_PRODUCTS = [
+  {'id':'remera-lua-0','slug':'remera-lua','name':'Remera Lua','shortDescription':'Algodón orgánico, corte relajado.','description':'Remera de algodón orgánico con corte relajado y terminación enrollada.','category':'remeras','tags':[],'price':25900,'image':'assets/products/remera.svg','alt':'Remera Lua de algodón','featured':true,'stockStatus':'in_stock','variants':[{'id':'blanco','label':'Blanco','priceDelta':0,'stockStatus':'in_stock'},{'id':'negro','label':'Negro','priceDelta':0,'stockStatus':'in_stock'}]},
+  {'id':'vestido-mora-1','slug':'vestido-mora','name':'Vestido Mora','shortDescription':'Viscosa liviana, escote cuadrado.','description':'Vestido midi de viscosa liviana con escote cuadrado y manga 3/4.','category':'vestidos','tags':[],'price':68900,'image':'assets/products/vestido.svg','alt':'Vestido morado midi','featured':true,'stockStatus':'in_stock','variants':[]},
+  {'id':'campera-norte-2','slug':'campera-norte','name':'Campera Norte','shortDescription':'Abrigo corto, interior cálido.','description':'Campera corta con interior cálido y bolsillos laterales.','category':'abrigos','tags':[],'price':92900,'image':'assets/products/campera.svg','alt':'Campera corta','featured':false,'stockStatus':'in_stock','variants':[{'id':'s','label':'S','priceDelta':0,'stockStatus':'in_stock'},{'id':'m','label':'M','priceDelta':0,'stockStatus':'in_stock'},{'id':'l','label':'L','priceDelta':0,'stockStatus':'low_stock'}]}
+];

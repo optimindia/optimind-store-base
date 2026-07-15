@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Botón de arrepentimiento — Tienda Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/brand/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="legal.css">
+</head>
+<body>
+  <header class="legal-header"><a class="brand" href="../index.html"><img src="../assets/brand/logo.svg" alt=""><span data-brand-name>Tienda Demo</span></a><a class="back-link" href="../index.html">← Volver a la tienda</a></header>
+  <main class="legal-main">
+    <p class="legal-kicker">Acceso directo</p><h1>Botón de arrepentimiento</h1><p class="updated">No requiere cuenta ni pasos previos</p>
+    <div class="legal-grid">
+      <nav class="legal-index" aria-label="Índice"><strong>En esta página</strong><a href="#solicitud">Enviar solicitud</a><a href="#despues">Qué sucede después</a><a href="#alternativas">Canales directos</a></nav>
+      <article class="legal-content">
+        <section id="solicitud"><h2>Solicitar la revocación</h2><p>Completá los datos mínimos para identificar la operación. Antes de abrir WhatsApp verás el mensaje y un código de referencia generado en tu navegador.</p>
+          <form class="regret-form" id="regret-form" novalidate>
+            <div class="form-field"><label for="regret-order">Número de pedido</label><input id="regret-order" name="order" autocomplete="off" maxlength="30" required></div>
+            <div class="form-field"><label for="regret-name">Nombre usado en la compra</label><input id="regret-name" name="name" autocomplete="name" maxlength="60" required></div>
+            <div class="form-field"><label for="regret-detail">Detalle <span>opcional</span></label><textarea id="regret-detail" name="detail" maxlength="300" placeholder="Podés indicar el producto o cualquier dato que ayude a ubicarlo"></textarea></div>
+            <button type="submit">Generar solicitud y abrir WhatsApp</button>
+            <p class="form-help" id="regret-status" role="status">No se envía información hasta que confirmes el mensaje en WhatsApp.</p>
+          </form>
+        </section>
+        <section id="despues"><h2>Qué sucede después</h2><p>El comercio recibe el código que comienza con <strong>ARR-</strong>, identifica el pedido y debe informar el tratamiento de la solicitud por el mismo canal. Conservá el chat y el código.</p></section>
+        <section id="alternativas"><h2>Canales directos</h2><p>Si el formulario no funciona, podés iniciar la solicitud sin usarlo:</p><div class="direct-links"><a data-store-whatsapp href="#" data-store-email-text="false" id="regret-wa-direct">Abrir WhatsApp</a><a data-store-email href="#" data-store-email-text="false" id="regret-mail-direct">Enviar email</a></div></section>
+        <aside class="review-note"><strong>Revisión profesional</strong><span>Esta herramienta genera un canal directo, pero el comercio debe adaptar procedimiento, registro, respuesta y excepciones a la normativa y a su operación real antes de publicar.</span></aside>
+      </article>
+    </div>
+  </main>
+  <footer class="legal-footer"><span data-store-copyright>© Tienda creada con OptiMind IA</span> · <a href="arrepentimiento.html">Botón de arrepentimiento</a></footer>
+  <script src="../store.config.js"></script>
+  <script src="legal.js"></script>
+  <script>
+    document.getElementById('regret-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var config = window.STORE_CONFIG || {};
+      var store = config.store || {};
+      var order = document.getElementById('regret-order');
+      var name = document.getElementById('regret-name');
+      var detail = document.getElementById('regret-detail');
+      var status = document.getElementById('regret-status');
+      if (!order.value.trim() || !name.value.trim()) {
+        status.textContent = 'Completá el número de pedido y el nombre usado en la compra.';
+        (!order.value.trim() ? order : name).focus();
+        return;
+      }
+      var day = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      var token = Math.random().toString(36).slice(2, 7).toUpperCase().padEnd(5, '0');
+      var requestId = 'ARR-' + day + '-' + token;
+      var lines = [
+        'Quiero solicitar el arrepentimiento de una compra.',
+        '', 'Solicitud: ' + requestId,
+        'Pedido: ' + order.value.trim(),
+        'Nombre: ' + name.value.trim()
+      ];
+      if (detail.value.trim()) lines.push('Detalle: ' + detail.value.trim());
+      status.textContent = 'Solicitud ' + requestId + ' lista. Conservá este código.';
+      var target = 'https://wa.me/' + store.whatsapp + '?text=' + encodeURIComponent(lines.join('\n'));
+      var opened = window.open(target, '_blank');
+      if (opened) opened.opener = null; else window.location.assign(target);
+    });
+  </script>
+</body>
+</html>

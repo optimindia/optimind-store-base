@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" role="img" aria-labelledby="title">
+  <title id="title">Raíces del Norte</title>
+  <rect width="88" height="88" rx="16" fill="#8C4B3A"/>
+  <path d="M44 18L72 44 44 70 16 44 44 18z" fill="#EDE8DF"/>
+  <path d="M44 18v52M16 44h56" stroke="#2E3A59" stroke-width="3"/>
+  <circle cx="44" cy="44" r="8" fill="#D4A056"/>
+</svg>
