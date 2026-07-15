@@ -1,6 +1,6 @@
 # Tienda Base OptiMind
 
-Motor estático y duplicable para convertir tráfico de Meta Ads en pedidos estructurados por WhatsApp. La tienda demostrativa se llama **NIDO Market** y vende objetos de hogar; el motor no depende de ese rubro.
+Motor estático y duplicable para convertir tráfico de Meta Ads en pedidos estructurados por WhatsApp. La tienda de demostración se llama **Tienda Demo** y vende objetos genéricos; el motor no depende de ese rubro. Cada cliente real obtiene una **piel visual nueva** (HTML/CSS) reutilizando el mismo motor.
 
 ## Qué incluye
 
@@ -12,19 +12,30 @@ Motor estático y duplicable para convertir tráfico de Meta Ads en pedidos estr
 - Pedido legible por WhatsApp con identificador y atribución UTM.
 - Meta Pixel opcional con eventos comerciales sin datos personales.
 - Páginas de privacidad, términos, envíos/cambios y arrepentimiento.
-- 27 pruebas automatizadas al momento de la primera versión.
+- 33 pruebas automatizadas (core, analítica, estructura y configuración).
+
+## Cómo se arma una tienda nueva
+
+El motor (`store-core.js`, `analytics.js`, `app.js`) **no se toca**. Para un cliente nuevo solo se edita la capa de datos y la piel:
+
+1. `store.config.js` — identidad, URL, WhatsApp, email, moneda, envío, categorías, legales, SEO y funciones activas.
+2. `products.js` — el catálogo real (mismo contrato que abajo).
+3. `assets/` — logo, OG e imágenes de producto (conservando rutas y dimensiones explícitas).
+4. La piel visual: `index.html` + `styles.css` se rehacen por cliente siguiendo el sistema de diseño OptiMind (`../design/`). El `:root` de `styles.css` concentra la paleta y la tipografía.
+
+Los legales (`legal/`) y el `<head>` se hidratan solos desde `store.config.js` (vía `app.js` y `legal.js`), así que no hace falta tocarlos salvo para ajustar copy específico.
 
 ## Configuración rápida
 
 1. Duplicá la carpeta completa y renombrala con el comercio.
-2. Editá `store.config.js`: identidad, URL, WhatsApp, email, moneda, envío y funciones activas.
-3. Sustituí los ocho registros de `products.js` por el catálogo real.
+2. Editá `store.config.js`: identidad, URL, WhatsApp, email, moneda, envío, categorías y funciones activas.
+3. Sustituí los registros de `products.js` por el catálogo real.
 4. Reemplazá `assets/brand/` y `assets/products/` conservando rutas y dimensiones explícitas.
-5. Adaptá copy y testimonios de `index.html`; no publiques afirmaciones demostrativas como si fueran reales.
-6. Revisá las cuatro páginas de `legal/` con los datos verdaderos del proveedor.
+5. Rehacé la piel visual de `index.html` y `styles.css` para el cliente; no publiques afirmaciones demostrativas como si fueran reales.
+6. Revisá las cuatro páginas de `legal/` con los datos verdaderos del responsable (se hidratan, pero el copy específico puede ajustarse).
 7. Ejecutá pruebas y captura visual antes del despliegue.
 
-El número de WhatsApp debe guardarse con código de país y área, solo dígitos. Ejemplo argentino: `5492616027055`.
+El número de WhatsApp se guarda con código de país y área, solo dígitos. Ejemplo argentino: `5492616027055`.
 
 ## Catálogo
 
@@ -52,7 +63,7 @@ Cada elemento de `products.js` usa este contrato:
 }
 ```
 
-Estados válidos: `in_stock`, `low_stock`, `out_of_stock`. Los precios se expresan como enteros en la unidad mostrada por la tienda. Un ID duplicado, un precio negativo o un producto sin nombre se descartan de manera segura.
+Estados válidos: `in_stock`, `low_stock`, `out_of_stock`. Los precios se expresan como enteros en la unidad mostrada por la tienda. Un ID duplicado, un precio negativo o un producto sin nombre se descartan de manera segura. Las categorías usadas deben existir en `store.config.js > categories`.
 
 ## Meta Pixel
 
@@ -73,14 +84,14 @@ Meta recomienda combinar Pixel y Conversions API para mejorar conectividad y med
 En PowerShell, usar `npm.cmd` porque algunas instalaciones bloquean `npm.ps1`:
 
 ```powershell
-cd Tienda-Generica
+cd optimind-store-base
 npm.cmd test
 node --check app.js
 node --check analytics.js
 node --check store-core.js
 ```
 
-La suite cubre normalización, búsqueda, filtros, variantes, carrito, totales, UTMs, mensaje de WhatsApp, privacidad de eventos y contratos estructurales.
+La suite cubre normalización, búsqueda, filtros, variantes, carrito, totales, UTMs, mensaje de WhatsApp, privacidad de eventos, contratos estructurales y validez de la configuración y el catálogo.
 
 Para probar la interfaz desde HTTP:
 
@@ -105,23 +116,22 @@ Checklist manual mínimo:
 
 ## Despliegue
 
-No hay build. Publicá el contenido de `Tienda-Generica/` como sitio estático en Cloudflare Pages, Vercel o un hosting equivalente.
+No hay build. Publicá el contenido de `optimind-store-base/` como sitio estático en Cloudflare Pages, Vercel o un hosting equivalente.
 
 Antes de producción:
 
-- Cambiar canonical, Open Graph y URL en configuración y HTML.
+- Cambiar canonical, Open Graph y URL en `store.config.js` (se hidratan en el DOM).
 - Usar HTTPS.
 - Probar el WhatsApp del cliente en un teléfono real.
 - Cargar el Pixel correcto y verificar eventos.
 - Optimizar fotografías reales a WebP/AVIF con dimensiones explícitas.
-- Reemplazar email, ubicación, redes y textos legales.
 - Comprobar que todas las promociones y estados de stock sean verdaderos.
 
 ## Personalización visual
 
 La demo usa Bricolage Grotesque + Familjen Grotesk, retail geométrico claro y la firma **Ticket Vivo**. Para cada cliente debe ejecutarse la máquina de variedad de `../design/`: investigar el rubro, descartar combinaciones recientes, elegir dirección/tipografía/paleta/firma y registrar el resultado en `design/log.md`.
 
-No cambies únicamente el color principal. El artefacto firma, el copy, la composición y las fotografías deben salir del mundo real del comercio.
+No cambies únicamente el color principal. El artefacto firma, el copy, la composición y las fotografías deben salir del mundo real del comercio. La paleta y la tipografía se cambian en el `:root` de `styles.css`.
 
 ## Límites
 

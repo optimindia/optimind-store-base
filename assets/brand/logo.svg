@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" role="img" aria-labelledby="title">
   <title>Logo</title>
   <rect width="88" height="88" rx="24" fill="#173027"/>
-  <path d="M23 61V27h10l22 19V27h10v34H55L33 42v19H23Z" fill="#D8F45A"/>
-  <circle cx="65" cy="24" r="7" fill="#FF623E"/>
+  <circle cx="34" cy="34" r="14" fill="#D8F45A"/>
+  <rect x="54" y="22" width="12" height="44" rx="6" fill="#FF623E"/>
 </svg>
