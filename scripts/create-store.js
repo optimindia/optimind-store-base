@@ -196,7 +196,7 @@ function buildStoreConfig(clientConfig, products) {
   const store = clientConfig.store || {};
   const categories = clientConfig.categories || inferCategoriesFromProducts(products);
   const seo = clientConfig.seo || {};
-  const storeUrl = store.url || 'https://' + slug + '.optimindia.site';
+  const storeUrl = store.url || 'https://optimind-store-base.pages.dev/clients/' + slug + '/';
 
   return {
     store: {

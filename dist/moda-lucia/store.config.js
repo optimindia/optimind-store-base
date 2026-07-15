@@ -6,7 +6,7 @@ window.STORE_CONFIG = {
     "name": "Moda Lucía",
     "shortName": "Lucía",
     "descriptor": "Indumentaria femenina pensada para el día a día",
-    "url": "https://moda-lucia.optimindia.site",
+    "url": "https://optimind-store-base.pages.dev/moda-lucia/",
     "whatsapp": "5492616123456",
     "instagram": "@moda.lucia",
     "email": "hola@modalucia.com",
@@ -75,7 +75,7 @@ window.STORE_CONFIG = {
   "seo": {
     "title": "Moda Lucía — indumentaria femenina",
     "description": "Elegí tu próxima prenda y coordiná la entrega por WhatsApp.",
-    "canonical": "https://moda-lucia.optimindia.site/",
+    "canonical": "https://optimind-store-base.pages.dev/moda-lucia/",
     "ogTitle": "Moda Lucía",
     "ogDescription": "Armá tu pedido online y coordiná la entrega por WhatsApp.",
     "ogImage": "assets/brand/og.svg",

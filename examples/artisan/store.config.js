@@ -6,7 +6,7 @@ window.STORE_CONFIG = {
     "name": "Raíces del Norte",
     "shortName": "Raíces",
     "descriptor": "Artesanías textiles, cerámicas y de madera del norte argentino",
-    "url": "https://raices-del-norte.optimindia.site",
+    "url": "https://optimind-store-base.pages.dev/raices-del-norte/",
     "whatsapp": "5492616027055",
     "instagram": "@raicesdelnorte.norte",
     "email": "hola@raicesdelnorte.com",
@@ -75,7 +75,7 @@ window.STORE_CONFIG = {
   "seo": {
     "title": "Raíces del Norte — artesanías de Jujuy",
     "description": "Elegí artesanías hechas a mano y coordiná la entrega por WhatsApp.",
-    "canonical": "https://raicesdelnorte.optimindia.site/",
+    "canonical": "https://optimind-store-base.pages.dev/raices-del-norte/",
     "ogTitle": "Raíces del Norte",
     "ogDescription": "Armá tu pedido online y coordiná la entrega por WhatsApp.",
     "ogImage": "assets/brand/og.svg",

@@ -36,7 +36,7 @@ Campos mínimos obligatorios:
     "name": "Nombre completo de la tienda",
     "shortName": "Nombre corto",
     "descriptor": "Frase de una línea que define qué vende",
-    "url": "https://nombre-de-la-tienda.optimindia.site",
+    "url": "https://optimind-store-base.pages.dev/clients/nombre-de-la-tienda/",
     "whatsapp": "5492616123456",
     "instagram": "@cuenta",
     "email": "hola@tienda.com",
@@ -235,7 +235,7 @@ Si todo pasa, la tienda está lista para subir.
 
 - El output es una carpeta estática.
 - Subir los archivos de `dist/clients/nombre-de-la-tienda/` al bucket o pages deseado.
-- Configurar el dominio: `nombre-de-la-tienda.optimindia.site`.
+- Cloudflare Pages entrega un dominio gratis tipo `*.pages.dev` automáticamente. Si el cliente quiere su propio dominio, se configura luego en el proyecto Pages sin tocar `optimindia.site`.
 - Probar el botón de WhatsApp con un pedido de prueba.
 
 ---

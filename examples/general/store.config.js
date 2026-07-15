@@ -6,7 +6,7 @@ window.STORE_CONFIG = {
     "name": "Todo en Casa",
     "shortName": "Todo en Casa",
     "descriptor": "Objetos útiles para el día a día, sin salir de tu barrio",
-    "url": "https://todoencasa.optimindia.site",
+    "url": "https://optimind-store-base.pages.dev/todo-en-casa/",
     "whatsapp": "5492616123457",
     "instagram": "@todoencasa.ar",
     "email": "hola@todoencasa.ar",
@@ -75,7 +75,7 @@ window.STORE_CONFIG = {
   "seo": {
     "title": "Todo en Casa — objetos útiles para el día a día",
     "description": "Encontrá lo que necesitás y coordiná la entrega por WhatsApp.",
-    "canonical": "https://todoencasa.optimindia.site/",
+    "canonical": "https://optimind-store-base.pages.dev/todo-en-casa/",
     "ogTitle": "Todo en Casa",
     "ogDescription": "Armá tu pedido online y coordiná la entrega por WhatsApp.",
     "ogImage": "assets/brand/og.svg",
