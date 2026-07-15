@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const Core = require('../store-core.js');
+const Core = require('../src/store-core.js');
 
 const sampleProducts = [
   {

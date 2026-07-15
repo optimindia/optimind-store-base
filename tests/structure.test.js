@@ -6,7 +6,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.join(__dirname, '..');
-const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
+const templateDir = path.join(root, 'templates', 'default');
+const read = (file) => fs.readFileSync(path.join(templateDir, file), 'utf8');
 
 test('la estructura HTML contiene los landmarks y controles críticos', () => {
   const html = read('index.html');
@@ -46,7 +47,7 @@ test('los scripts cargan en el orden de dependencias', () => {
 });
 
 test('existen ilustraciones locales de producto', () => {
-  const productDir = path.join(root, 'assets', 'products');
+  const productDir = path.join(templateDir, 'assets', 'products');
   const images = fs.readdirSync(productDir).filter((file) => file.endsWith('.svg'));
 
   assert.ok(images.length >= 1, 'debe haber al menos una imagen de producto');

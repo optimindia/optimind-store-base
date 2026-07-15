@@ -1,0 +1,26 @@
+{
+  "store": {
+    "name": "Moda Lucía",
+    "shortName": "Lucía",
+    "descriptor": "Indumentaria femenina pensada para el día a día",
+    "url": "https://moda-lucia.optimindia.site",
+    "whatsapp": "5492616123456",
+    "instagram": "@moda.lucia",
+    "email": "hola@modalucia.com",
+    "location": "Mendoza, Argentina"
+  },
+  "categories": [
+    { "id": "remeras", "label": "Remeras", "icon": "◒" },
+    { "id": "vestidos", "label": "Vestidos", "icon": "◇" },
+    { "id": "abrigos", "label": "Abrigos", "icon": "○" }
+  ],
+  "commerce": {
+    "freeShippingFrom": 85000,
+    "lowStockLabel": "Últimas unidades"
+  },
+  "seo": {
+    "title": "Moda Lucía — indumentaria femenina",
+    "description": "Elegí tu próxima prenda y coordiná la entrega por WhatsApp."
+  },
+  "themeColor": "#F4E8F1"
+}

@@ -4,14 +4,15 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const Core = require('../store-core.js');
+const Core = require('../src/store-core.js');
 
 const root = path.join(__dirname, '..');
+const templateDir = path.join(root, 'templates', 'default');
 
 // store.config.js y products.js asignan a `window` (sin exportar). Los cargamos
 // en un sandbox con un objeto window propio para poder leerlos en Node.
 function loadGlobal(file, key) {
-  const code = fs.readFileSync(path.join(root, file), 'utf8');
+  const code = fs.readFileSync(path.join(templateDir, file), 'utf8');
   const sandbox = {};
   const fn = new Function('window', code + '\nreturn window.' + key + ';');
   return fn(sandbox);
@@ -73,7 +74,7 @@ test('products.js define un catálogo válido que pasa el normalizador del motor
 test('cada producto referencia una imagen que existe en assets/products', () => {
   for (const product of products) {
     assert.ok(product.image, 'todo producto necesita image en ' + (product.id || '(sin id)'));
-    const file = path.join(root, product.image.replace(/\//g, path.sep));
+    const file = path.join(templateDir, product.image.replace(/\//g, path.sep));
     assert.ok(fs.existsSync(file), 'falta el archivo de imagen: ' + product.image);
   }
 });

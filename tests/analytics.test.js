@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const Analytics = require('../analytics.js');
+const Analytics = require('../src/analytics.js');
 
 function createEnvironment() {
   const appended = [];

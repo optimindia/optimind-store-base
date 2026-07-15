@@ -1,0 +1,4 @@
+name,category,short_description,description,price,compare_at_price,stock_status,featured,image,alt,variants
+Remera Lua,remeras,"Algodón orgánico, corte relajado.","Remera de algodón orgánico con corte relajado y terminación enrollada.",25900,28900,in_stock,true,assets/products/remera.svg,Remera Lua de algodón,"Blanco:0:in_stock|Negro:0:in_stock"
+Vestido Mora,vestidos,"Viscosa liviana, escote cuadrado.","Vestido midi de viscosa liviana con escote cuadrado y manga 3/4.",68900,,in_stock,true,assets/products/vestido.svg,Vestido morado midi,
+Campera Norte,abrigos,"Abrigo corto, interior cálido.","Campera corta con interior cálido y bolsillos laterales.",92900,105000,in_stock,false,assets/products/campera.svg,Campera corta,"S:0:in_stock|M:0:in_stock|L:0:low_stock"
