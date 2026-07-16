@@ -1077,3 +1077,46 @@ body[data-store-style="campaign-editorial"] .how-section .step-number {
   color: #17376D;
   box-shadow: 3px 3px 0 #17376D;
 }
+
+/* closing-contrast-pass: the final invitation needs to read from across the room. */
+body[data-store-style="campaign-editorial"] .closing-section {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, #102C60 0%, #17376D 62%, #214783 100%);
+  color: #FFFDF9;
+  overflow: hidden;
+}
+
+body[data-store-style="campaign-editorial"] .closing-section::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: min(44vw, 620px);
+  aspect-ratio: 1;
+  right: -12%;
+  bottom: -64%;
+  border: 1px solid rgba(255, 253, 249, 0.22);
+  border-radius: 50%;
+  box-shadow: 0 0 0 68px rgba(255, 253, 249, 0.045), 0 0 0 136px rgba(255, 253, 249, 0.025);
+}
+
+body[data-store-style="campaign-editorial"] .closing-section > p,
+body[data-store-style="campaign-editorial"] .closing-section h2 {
+  color: #FFFDF9;
+}
+
+body[data-store-style="campaign-editorial"] .closing-section h2 em {
+  color: #FF5F83;
+}
+
+body[data-store-style="campaign-editorial"] .closing-section .button-primary {
+  background: #FFFDF9;
+  color: #17376D;
+  box-shadow: 8px 8px 0 #FF5F83;
+}
+
+body[data-store-style="campaign-editorial"] .closing-section .button-primary:hover:not(:disabled) {
+  background: #FF5F83;
+  color: #FFFDF9;
+  box-shadow: 5px 5px 0 #FFFDF9;
+}
