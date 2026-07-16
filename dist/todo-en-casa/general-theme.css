@@ -740,6 +740,57 @@ body[data-store-style="domestic-modular"] .card-add:hover:not(:disabled) { backg
   body[data-store-style="domestic-modular"] .product-card { grid-column: span 6; }
   body[data-store-style="domestic-modular"] .product-card:first-child { grid-column: 1 / -1; }
 }
+
+/* home-detail-pass: practical warmth, with a small amount of shop-floor texture */
+body[data-store-style="domestic-modular"] .hero::before {
+  border-color: rgba(242, 182, 75, 0.65);
+  background: repeating-linear-gradient(45deg, rgba(23, 57, 46, 0.035) 0 2px, transparent 2px 14px);
+}
+
+body[data-store-style="domestic-modular"] .hero h1 {
+  text-wrap: balance;
+  text-shadow: 1px 1px 0 rgba(255, 253, 244, 0.78);
+}
+
+body[data-store-style="domestic-modular"] .hero-lead {
+  padding: 18px 0 0;
+  border-top: 2px solid var(--accent-2);
+}
+
+body[data-store-style="domestic-modular"] .category-strip button span {
+  display: inline-grid;
+  min-width: 30px;
+  min-height: 30px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+body[data-store-style="domestic-modular"] .shop-tools {
+  box-shadow: 8px 8px 0 rgba(23, 57, 46, 0.14);
+}
+
+body[data-store-style="domestic-modular"] .product-card:nth-child(3n + 2) .product-media { background: #F7D7A0; }
+body[data-store-style="domestic-modular"] .product-card:nth-child(3n) .product-media { background: #C7D8EF; }
+body[data-store-style="domestic-modular"] .product-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 rgba(23, 57, 46, 0.24);
+}
+
+body[data-store-style="domestic-modular"] .product-category {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+body[data-store-style="domestic-modular"] .trust-section {
+  border-top: 2px solid #17392E;
+  background: #FFFDF4;
+}
 @media (max-width: 640px) {
   body[data-store-style="domestic-modular"] .hero h1 { font-size: clamp(60px, 17vw, 90px); }
   body[data-store-style="domestic-modular"] .product-card,

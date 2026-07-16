@@ -38,12 +38,15 @@ test('el build publica el portfolio y las tres tiendas', () => {
   const artisanTheme = fs.readFileSync(path.join(root, 'examples', 'artisan', 'artisan-theme.css'), 'utf8');
   assert.match(fashionTheme, /atelier-select/);
   assert.match(fashionTheme, /runway-lookbook/);
+  assert.match(fashionTheme, /fashion-type-reset/);
   assert.match(fashionTheme, /mobile-copy-guard/);
   assert.match(generalTheme, /utility-switch/);
   assert.match(generalTheme, /weekend-toolbox/);
+  assert.match(generalTheme, /home-detail-pass/);
   assert.match(generalTheme, /mobile-copy-guard/);
   assert.match(artisanTheme, /archive-drawer/);
   assert.match(artisanTheme, /high-contrast-archive/);
+  assert.match(artisanTheme, /roots-detail-pass/);
   assert.match(artisanTheme, /high-contrast-footer/);
   assert.match(artisanTheme, /archive-search-table/);
   assert.match(artisanTheme, /--paper:\s*#10241F/);
