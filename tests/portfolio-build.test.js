@@ -26,6 +26,20 @@ test('el build publica el portfolio y las tres tiendas', () => {
 
   const fashion = fs.readFileSync(path.join(root, 'examples', 'fashion', 'index.html'), 'utf8');
   const general = fs.readFileSync(path.join(root, 'examples', 'general', 'index.html'), 'utf8');
+  const artisan = fs.readFileSync(path.join(root, 'examples', 'artisan', 'index.html'), 'utf8');
   assert.match(fashion, /data-store-style="campaign-editorial"/);
   assert.match(general, /data-store-style="domestic-modular"/);
+  assert.match(artisan, /data-store-style="material-archive"/);
+  assert.match(artisan, /data-product-origin/);
+  assert.match(artisan, /weave-band/);
+});
+
+test('el chequeo de sintaxis revisa los scripts que el proyecto publica', () => {
+  assert.doesNotThrow(() => {
+    execFileSync('npm.cmd', ['run', 'check'], {
+      cwd: root,
+      stdio: 'pipe',
+      shell: process.platform === 'win32'
+    });
+  });
 });

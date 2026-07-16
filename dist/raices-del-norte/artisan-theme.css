@@ -3,17 +3,17 @@
    Sobreescribe las variables y componentes de styles.css. */
 
 :root {
-  --paper: #F7F3EB;
-  --surface: #FFFBF5;
-  --ink: #2C241F;
-  --muted: #7A6B62;
-  --accent: #A35C42;
-  --accent-2: #D4A056;
-  --highlight: #E8D5B5;
-  --line: rgba(44, 36, 31, 0.12);
-  --line-strong: rgba(44, 36, 31, 0.24);
+  --paper: #EDE4D1;
+  --surface: #FAF6EB;
+  --ink: #19352F;
+  --muted: #65736A;
+  --accent: #9B603A;
+  --accent-2: #C8894B;
+  --highlight: #D7C29C;
+  --line: rgba(25, 53, 47, 0.14);
+  --line-strong: rgba(25, 53, 47, 0.28);
   --danger: #9B3A3A;
-  --display: 'Alegreya', 'Georgia', serif;
+  --display: 'Alegreya', 'Iowan Old Style', Georgia, serif;
   --body: 'Nunito Sans', system-ui, -apple-system, sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   --radius-sm: 8px;
@@ -162,6 +162,69 @@ body {
   grid-row: 2;
   align-self: start;
   justify-self: center;
+}
+
+.weave-band {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 540px);
+  margin: 8px auto 0;
+  padding: 10px 16px;
+  color: var(--surface);
+  background:
+    repeating-linear-gradient(90deg, rgba(250, 246, 235, 0.14) 0 2px, transparent 2px 16px),
+    var(--ink);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.weave-band i {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  background: var(--accent-2);
+  transform: rotate(45deg);
+}
+
+/* Raíces no repite la composición de campaña: el telar ocupa el centro y el
+   pedido aparece como una ficha de archivo a la derecha. */
+body[data-store-style="material-archive"] .hero {
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.42fr) minmax(330px, 0.72fr);
+  grid-template-rows: minmax(620px, 1fr) auto;
+  gap: 20px clamp(18px, 3vw, 54px);
+}
+
+body[data-store-style="material-archive"] .hero-copy {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  align-self: center;
+}
+
+body[data-store-style="material-archive"] .hero-lead {
+  max-width: 31rem;
+}
+
+body[data-store-style="material-archive"] .hero-visual {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  justify-self: center;
+  padding: 0 0 88px;
+}
+
+body[data-store-style="material-archive"] .hero-ticket-wrap {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  justify-self: stretch;
+}
+
+body[data-store-style="material-archive"] .weave-band {
+  grid-row: 2;
 }
 
 .eyebrow {

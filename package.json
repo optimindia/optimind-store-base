@@ -8,6 +8,6 @@
     "build": "node scripts/build.js",
     "create-store": "node scripts/create-store.js",
     "validate": "node scripts/validate.js",
-    "check": "node --check src/app.js && node --check src/analytics.js && node --check src/store-core.js && node --check legal/legal.js"
+    "check": "node --check examples/fashion/app.js && node --check examples/fashion/analytics.js && node --check examples/fashion/store-core.js && node --check examples/fashion/legal/legal.js && node --check examples/general/app.js && node --check examples/general/analytics.js && node --check examples/general/store-core.js && node --check examples/general/legal/legal.js && node --check examples/artisan/app.js && node --check examples/artisan/analytics.js && node --check examples/artisan/store-core.js && node --check examples/artisan/legal/legal.js"
   }
 }

@@ -1,5 +1,14 @@
 # Tienda Base OptiMind
 
+## Portfolio publicado
+
+- Landing: `https://optimind-store-base.pages.dev/`
+- Moda Lucía: `https://optimind-store-base.pages.dev/moda-lucia/`
+- Todo en Casa: `https://optimind-store-base.pages.dev/todo-en-casa/`
+- Raíces del Norte: `https://optimind-store-base.pages.dev/raices-del-norte/`
+
+Este repositorio es la fuente única del portfolio publicado. `npm.cmd run build` copia las tres tiendas funcionales y el dossier de `showcase/` a `dist/`. Cloudflare Pages ejecuta ese build al recibir cambios en `master`.
+
 Motor estático y duplicable para convertir tráfico de Meta Ads en pedidos estructurados por WhatsApp. La tienda de demostración se llama **Tienda Demo** y vende objetos genéricos; el motor no depende de ese rubro. Cada cliente real obtiene una **piel visual nueva** (HTML/CSS) reutilizando el mismo motor.
 
 ## Qué incluye
@@ -12,7 +21,7 @@ Motor estático y duplicable para convertir tráfico de Meta Ads en pedidos estr
 - Pedido legible por WhatsApp con identificador y atribución UTM.
 - Meta Pixel opcional con eventos comerciales sin datos personales.
 - Páginas de privacidad, términos, envíos/cambios y arrepentimiento.
-- 33 pruebas automatizadas (core, analítica, estructura y configuración).
+- 35 pruebas automatizadas (core, analítica, estructura, configuración y build del portfolio).
 
 ## Cómo se arma una tienda nueva
 
@@ -86,9 +95,9 @@ En PowerShell, usar `npm.cmd` porque algunas instalaciones bloquean `npm.ps1`:
 ```powershell
 cd optimind-store-base
 npm.cmd test
-node --check app.js
-node --check analytics.js
-node --check store-core.js
+npm.cmd run check
+npm.cmd run validate
+npm.cmd run build
 ```
 
 La suite cubre normalización, búsqueda, filtros, variantes, carrito, totales, UTMs, mensaje de WhatsApp, privacidad de eventos, contratos estructurales y validez de la configuración y el catálogo.
@@ -116,7 +125,7 @@ Checklist manual mínimo:
 
 ## Despliegue
 
-No hay build. Publicá el contenido de `optimind-store-base/` como sitio estático en Cloudflare Pages, Vercel o un hosting equivalente.
+Cloudflare Pages está conectado al repo `optimindia/optimind-store-base`: la rama de producción es `master`, el comando es `npm run build` y el directorio de salida es `dist`.
 
 Antes de producción:
 
