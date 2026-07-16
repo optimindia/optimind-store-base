@@ -1120,3 +1120,45 @@ body[data-store-style="campaign-editorial"] .closing-section .button-primary:hov
   color: #FFFDF9;
   box-shadow: 5px 5px 0 #FFFDF9;
 }
+
+/* ticket-trigger-pass: the header control reads as a detachable ticket stub. */
+body[data-store-style="campaign-editorial"] .cart-trigger {
+  min-height: 44px;
+  gap: 11px;
+  padding: 7px 8px 7px 14px;
+  border: 1px solid #21131A;
+  border-radius: 0;
+  background: #FFFDF9;
+  box-shadow: 4px 4px 0 #B2153E;
+  color: #21131A;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+body[data-store-style="campaign-editorial"] .cart-trigger .cart-count {
+  display: grid;
+  place-items: center;
+  min-width: 25px;
+  height: 25px;
+  padding-left: 10px;
+  border-left: 1px dashed rgba(33, 19, 26, 0.56);
+  border-radius: 0;
+  background: transparent;
+  color: #B2153E;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body[data-store-style="campaign-editorial"] .cart-trigger:hover {
+  background: #21131A;
+  box-shadow: 3px 3px 0 #B2153E;
+  color: #FFFDF9;
+}
+
+body[data-store-style="campaign-editorial"] .cart-trigger:hover .cart-count {
+  border-left-color: rgba(255, 253, 249, 0.6);
+  color: #FFFDF9;
+}
