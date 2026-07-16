@@ -1238,3 +1238,132 @@ body[data-store-style="campaign-editorial"] .announcement > span {
   color: #FF9AB0;
   opacity: 0.9;
 }
+
+/* product-editorial-pass: every card gets one clear reading order and one stable action rail. */
+body[data-store-style="campaign-editorial"] .product-card,
+body[data-store-style="campaign-editorial"] .product-card:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 0 14px;
+}
+
+body[data-store-style="campaign-editorial"] .product-info,
+body[data-store-style="campaign-editorial"] .product-card:first-child .product-info {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 16px;
+}
+
+body[data-store-style="campaign-editorial"] .product-summary,
+body[data-store-style="campaign-editorial"] .product-card:first-child .product-summary {
+  min-height: 0;
+  margin: 5px 0 14px;
+  color: #6D5B62;
+}
+
+body[data-store-style="campaign-editorial"] .card-add,
+body[data-store-style="campaign-editorial"] .product-card:first-child .card-add {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 42px;
+  margin: auto 0 0;
+  padding: 0 2px;
+  border: 0;
+  border-top: 1px solid rgba(33, 19, 26, 0.72);
+  border-radius: 0;
+  background: transparent;
+  color: #21131A;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: none;
+}
+
+body[data-store-style="campaign-editorial"] .card-add span,
+body[data-store-style="campaign-editorial"] .product-card:first-child .card-add span {
+  font-family: var(--display);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+body[data-store-style="campaign-editorial"] .card-add:hover:not(:disabled),
+body[data-store-style="campaign-editorial"] .product-card:first-child .card-add:hover:not(:disabled) {
+  padding: 0 6px;
+  border-color: #B2153E;
+  background: transparent;
+  color: #B2153E;
+  transform: none;
+}
+
+/* dialog-detail-pass: the product sheet borrows the same paper-and-ink language as the ticket. */
+body[data-store-style="campaign-editorial"] .product-dialog {
+  border: 1px solid rgba(33, 19, 26, 0.22);
+  border-radius: 18px;
+  background: #FFFDF9;
+  box-shadow: 0 30px 80px rgba(15, 12, 14, 0.32);
+}
+
+body[data-store-style="campaign-editorial"] .dialog-product-media {
+  border-radius: 17px 0 0 17px;
+  background: #F0E5DA;
+}
+
+body[data-store-style="campaign-editorial"] .dialog-product-copy {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 58px 54px 48px;
+  background: linear-gradient(180deg, #FFFDF9, #FBF5F0);
+}
+
+body[data-store-style="campaign-editorial"] .dialog-product-copy h2 {
+  max-width: 10ch;
+  color: #21131A;
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+}
+
+body[data-store-style="campaign-editorial"] .dialog-actions {
+  grid-template-columns: auto 82px minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(33, 19, 26, 0.16);
+}
+
+body[data-store-style="campaign-editorial"] .dialog-actions label {
+  color: #21131A;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body[data-store-style="campaign-editorial"] .dialog-actions select {
+  border-color: rgba(33, 19, 26, 0.46);
+  border-radius: 2px;
+  background: #FFFDF9;
+}
+
+body[data-store-style="campaign-editorial"] .dialog-actions .button-primary {
+  min-height: 56px;
+  box-shadow: 5px 5px 0 #17376D;
+}
+
+@media (max-width: 640px) {
+  body[data-store-style="campaign-editorial"] .dialog-product-media { border-radius: 17px 17px 0 0; }
+  body[data-store-style="campaign-editorial"] .dialog-product-copy { padding: 36px 22px 30px; }
+  body[data-store-style="campaign-editorial"] .dialog-actions { grid-template-columns: 1fr 76px; }
+  body[data-store-style="campaign-editorial"] .dialog-actions .button-primary { grid-column: 1 / -1; }
+}
