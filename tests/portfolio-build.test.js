@@ -37,10 +37,13 @@ test('el build publica el portfolio y las tres tiendas', () => {
   const generalTheme = fs.readFileSync(path.join(root, 'examples', 'general', 'general-theme.css'), 'utf8');
   const artisanTheme = fs.readFileSync(path.join(root, 'examples', 'artisan', 'artisan-theme.css'), 'utf8');
   assert.match(fashionTheme, /atelier-select/);
+  assert.match(fashionTheme, /runway-lookbook/);
   assert.match(fashionTheme, /mobile-copy-guard/);
   assert.match(generalTheme, /utility-switch/);
+  assert.match(generalTheme, /weekend-toolbox/);
   assert.match(generalTheme, /mobile-copy-guard/);
   assert.match(artisanTheme, /archive-drawer/);
+  assert.match(artisanTheme, /high-contrast-archive/);
   assert.match(artisanTheme, /archive-search-table/);
   assert.match(artisanTheme, /--paper:\s*#10241F/);
   assert.match(artisanTheme, /@media \(max-width: 960px\)[\s\S]*material-archive"\] \.hero-ticket-wrap/);

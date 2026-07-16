@@ -655,6 +655,179 @@ body {
   }
 }
 
+/* runway-lookbook: Lucía is an editorial selection, never a generic shop skin */
+body[data-store-style="campaign-editorial"] {
+  --paper: #F1EEE9;
+  --surface: #FFFDF9;
+  --ink: #21131A;
+  --muted: #6D5B62;
+  --accent: #B2153E;
+  --accent-2: #17376D;
+  --highlight: #E5D7D5;
+  --line: rgba(33, 19, 26, 0.16);
+  --line-strong: rgba(33, 19, 26, 0.34);
+  background:
+    linear-gradient(90deg, transparent 0 7.5%, rgba(178, 21, 62, 0.12) 7.5% calc(7.5% + 1px), transparent calc(7.5% + 1px)),
+    var(--paper);
+}
+
+body[data-store-style="campaign-editorial"] .announcement {
+  background: #21131A;
+  color: #FFF6F1;
+}
+
+body[data-store-style="campaign-editorial"] .site-header {
+  background: rgba(255, 253, 249, 0.96);
+  border-bottom-color: rgba(178, 21, 62, 0.24);
+}
+
+body[data-store-style="campaign-editorial"] .brand,
+body[data-store-style="campaign-editorial"] .hero h1 { color: #21131A; }
+
+body[data-store-style="campaign-editorial"] .hero {
+  grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr);
+  grid-template-rows: 1fr;
+  min-height: min(780px, calc(100svh - 108px));
+  gap: clamp(28px, 5vw, 88px);
+  padding-bottom: 88px;
+}
+
+body[data-store-style="campaign-editorial"] .hero-copy {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 690px;
+}
+
+body[data-store-style="campaign-editorial"] .hero h1 {
+  max-width: 8ch;
+  font-size: clamp(72px, 8.7vw, 144px);
+  line-height: 0.79;
+  letter-spacing: -0.075em;
+}
+
+body[data-store-style="campaign-editorial"] .hero h1 em { color: var(--accent); }
+body[data-store-style="campaign-editorial"] .hero-lead { max-width: 37ch; color: #59454C; }
+
+body[data-store-style="campaign-editorial"] .hero-visual {
+  display: none;
+}
+
+body[data-store-style="campaign-editorial"] .hero-ticket-wrap {
+  grid-column: 2;
+  grid-row: 1;
+  width: min(100%, 430px);
+  align-self: center;
+  justify-self: end;
+}
+
+body[data-store-style="campaign-editorial"] .ticket-shadow {
+  background: var(--accent);
+  opacity: 0.22;
+  transform: translate(18px, 18px);
+}
+
+body[data-store-style="campaign-editorial"] .live-ticket {
+  min-height: 500px;
+  border: 1px solid #21131A;
+  border-radius: 0;
+  background: #FFFDF9;
+  box-shadow: none;
+  transform: none;
+}
+
+body[data-store-style="campaign-editorial"] .ticket-mark,
+body[data-store-style="campaign-editorial"] .cart-count { background: var(--accent); color: #FFFDF9; }
+body[data-store-style="campaign-editorial"] .ticket-brand { color: var(--accent-2); }
+
+body[data-store-style="campaign-editorial"] .button-primary {
+  border-radius: 0;
+  background: var(--accent);
+  box-shadow: 8px 8px 0 var(--accent-2);
+}
+body[data-store-style="campaign-editorial"] .button-primary:hover:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: 5px 5px 0 var(--accent-2);
+}
+
+body[data-store-style="campaign-editorial"] .shop-section {
+  background: #FFFDF9;
+  border-top: 10px solid var(--accent-2);
+}
+body[data-store-style="campaign-editorial"] .shop-tools { border-radius: 0; background: #F5E8E4; }
+body[data-store-style="campaign-editorial"] .filter-chips button.is-active,
+body[data-store-style="campaign-editorial"] .filter-chips button:hover { background: var(--accent); border-color: var(--accent); }
+
+body[data-store-style="campaign-editorial"] .product-grid { gap: 56px 26px; }
+body[data-store-style="campaign-editorial"] .product-card,
+body[data-store-style="campaign-editorial"] .product-card:first-child {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 2px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+}
+body[data-store-style="campaign-editorial"] .product-card::before { display: none; }
+body[data-store-style="campaign-editorial"] .product-media,
+body[data-store-style="campaign-editorial"] .product-card:first-child .product-media {
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  outline: 0;
+  background: var(--highlight);
+}
+body[data-store-style="campaign-editorial"] .product-info { padding: 18px 0 0; }
+body[data-store-style="campaign-editorial"] .product-info h3 { font-family: var(--display); font-size: 28px; }
+body[data-store-style="campaign-editorial"] .product-summary { min-height: 48px; color: var(--muted); }
+body[data-store-style="campaign-editorial"] .card-add {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 12px;
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 13px;
+}
+body[data-store-style="campaign-editorial"] .card-add span { font-size: 17px; }
+body[data-store-style="campaign-editorial"] .card-add:hover:not(:disabled) {
+  background: var(--accent);
+  color: #FFFDF9;
+  transform: none;
+}
+
+@media (max-width: 960px) {
+  body[data-store-style="campaign-editorial"] .hero { grid-template-columns: 1fr; min-height: auto; }
+  body[data-store-style="campaign-editorial"] .hero-ticket-wrap { grid-column: 1; grid-row: 2; justify-self: start; }
+  body[data-store-style="campaign-editorial"] .product-card,
+  body[data-store-style="campaign-editorial"] .product-card:first-child { grid-column: span 6; }
+}
+
+@media (max-width: 640px) {
+  body[data-store-style="campaign-editorial"] .hero h1 { font-size: clamp(64px, 18vw, 92px); }
+  body[data-store-style="campaign-editorial"] .product-card,
+  body[data-store-style="campaign-editorial"] .product-card:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 960px) {
+  body[data-store-style="campaign-editorial"] .hero,
+  body[data-store-style="campaign-editorial"] .hero-copy,
+  body[data-store-style="campaign-editorial"] .hero h1,
+  body[data-store-style="campaign-editorial"] .hero-lead {
+    width: calc(100vw - 68px);
+    min-width: 0;
+    max-width: calc(100vw - 68px);
+  }
+
+  body[data-store-style="campaign-editorial"] .hero h1 {
+    font-size: clamp(56px, 15vw, 74px);
+    overflow-wrap: anywhere;
+    text-wrap: wrap;
+  }
+}
+
 @media (max-width: 960px) {
   html,
   body { overflow-x: clip; }
