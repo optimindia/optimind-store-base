@@ -6,10 +6,11 @@ const path = require('node:path');
 
 // Build para Cloudflare Pages.
 // Empaqueta las tiendas generadas y de referencia en dist/ para deploy.
-// Genera una landing premium tipo vitrina digital.
+// Copia el dossier de portfolio mantenible desde showcase/.
 
 const root = path.join(__dirname, '..');
 const outDir = path.join(root, 'dist');
+const showcaseDir = path.join(root, 'showcase');
 
 const stores = [
   {
@@ -569,7 +570,7 @@ for (const store of stores) {
   console.log(`  ✓ ${store.slug}`);
 }
 
-console.log('Generando landing premium...');
-fs.writeFileSync(path.join(outDir, 'index.html'), buildLanding(), 'utf8');
+console.log('Copiando dossier de portfolio...');
+copyDir(showcaseDir, outDir);
 
 console.log('Build completo en dist/');
