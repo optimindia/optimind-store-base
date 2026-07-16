@@ -1274,3 +1274,35 @@ body[data-store-style="material-archive"] .trust-cards article {
   border-color: rgba(255, 211, 110, 0.52);
   background: #123126;
 }
+
+/* motion-signature-roots: an archive drawer opens and the woven material answers. */
+body[data-store-style="material-archive"] ::selection { background:#FFD36E; color:#0B211A; }
+body[data-store-style="material-archive"] :focus-visible { outline:3px solid #FFD36E; outline-offset:4px; }
+body[data-store-style="material-archive"] .hero-copy > * { animation:roots-drawer-open .82s cubic-bezier(.16,1,.3,1) both; }
+body[data-store-style="material-archive"] .hero-copy h1 { animation-delay:.08s; }
+body[data-store-style="material-archive"] .hero-lead { animation-delay:.16s; }
+body[data-store-style="material-archive"] .hero-actions { animation-delay:.24s; }
+body[data-store-style="material-archive"] .hero-visual { animation:roots-object-rise .95s cubic-bezier(.16,1,.3,1) .12s both; }
+body[data-store-style="material-archive"] .hero-ticket-wrap { animation:roots-stamp-in .72s cubic-bezier(.34,1.56,.64,1) .3s both; }
+body[data-store-style="material-archive"] .hero-tag { animation:roots-seal 10s ease-in-out infinite; }
+body[data-store-style="material-archive"] .product-card { overflow:hidden; transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s,border-color .5s; }
+body[data-store-style="material-archive"] .product-card:hover { transform:translateY(-6px); box-shadow:10px 12px 0 rgba(11,33,26,.22); border-color:#A8442A; }
+body[data-store-style="material-archive"] .product-card::after { transition:width .45s cubic-bezier(.16,1,.3,1),height .45s,border-color .45s; }
+body[data-store-style="material-archive"] .product-card:hover::after { width:calc(100% - 20px); height:calc(100% - 20px); border-color:#A8442A; }
+body[data-store-style="material-archive"] .product-media img,
+body[data-store-style="material-archive"] .product-media svg { transition:transform .75s cubic-bezier(.16,1,.3,1); }
+body[data-store-style="material-archive"] .product-card:hover .product-media img,
+body[data-store-style="material-archive"] .product-card:hover .product-media svg { transform:scale(1.035) rotate(.6deg); }
+body[data-store-style="material-archive"] .quick-view { transition:background .28s,color .28s,letter-spacing .28s; }
+body[data-store-style="material-archive"] .quick-view:hover { background:#FFD36E; color:#0B211A; letter-spacing:.08em; }
+body[data-store-style="material-archive"] .category-strip button:hover { transform:translateY(-3px) rotate(-.4deg); }
+@supports (animation-timeline:view()) {
+  body[data-store-style="material-archive"] .product-card { animation:roots-piece-reveal linear both; animation-timeline:view(); animation-range:entry 5% cover 34%; }
+  body[data-store-style="material-archive"] .how-intro,body[data-store-style="material-archive"] .how-steps,body[data-store-style="material-archive"] .trust-cards { animation:roots-piece-reveal linear both; animation-timeline:view(); animation-range:entry 5% cover 34%; }
+}
+@keyframes roots-drawer-open { from { opacity:0; transform:translateX(-38px); clip-path:inset(0 100% 0 0); } to { opacity:1; transform:none; clip-path:inset(0); } }
+@keyframes roots-object-rise { from { opacity:0; transform:translateY(42px) scale(.96); filter:sepia(.5); } to { opacity:1; transform:none; filter:none; } }
+@keyframes roots-stamp-in { from { opacity:0; transform:scale(1.35) rotate(-12deg); } to { opacity:1; transform:none; } }
+@keyframes roots-piece-reveal { from { opacity:.15; transform:translateY(35px); clip-path:inset(14% 0 0 0); } to { opacity:1; transform:none; clip-path:inset(0); } }
+@keyframes roots-seal { 50% { transform:rotate(-4deg) scale(1.04); } }
+@media (prefers-reduced-motion:reduce) { body[data-store-style="material-archive"] *,body[data-store-style="material-archive"] *::before,body[data-store-style="material-archive"] *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } }

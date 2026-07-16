@@ -654,6 +654,43 @@ body {
   }
 }
 
+/* motion-signature-home: useful objects click, slide and settle like a well-made tool. */
+body[data-store-style="domestic-modular"] ::selection { background:#E0A43B; color:#173C2B; }
+body[data-store-style="domestic-modular"] :focus-visible { outline:3px solid #E0A43B; outline-offset:4px; }
+body[data-store-style="domestic-modular"] .hero-copy > * { animation:home-slide-in .72s cubic-bezier(.16,1,.3,1) both; }
+body[data-store-style="domestic-modular"] .hero-copy h1 { animation-delay:.08s; }
+body[data-store-style="domestic-modular"] .hero-lead { animation-delay:.16s; }
+body[data-store-style="domestic-modular"] .hero-actions { animation-delay:.24s; }
+body[data-store-style="domestic-modular"] .hero-visual { animation:home-tool-drop .85s cubic-bezier(.34,1.56,.64,1) .12s both; }
+body[data-store-style="domestic-modular"] .hero-ticket-wrap { animation:home-ticket-click .65s cubic-bezier(.34,1.56,.64,1) .3s both; }
+body[data-store-style="domestic-modular"] .hero-tag { animation:home-dial 14s linear infinite; }
+body[data-store-style="domestic-modular"] .button,
+body[data-store-style="domestic-modular"] .cart-trigger,
+body[data-store-style="domestic-modular"] .quick-view { transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s,background .22s,color .22s; }
+body[data-store-style="domestic-modular"] .button:hover,
+body[data-store-style="domestic-modular"] .quick-view:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 #173C2B; }
+body[data-store-style="domestic-modular"] .button:active,
+body[data-store-style="domestic-modular"] .quick-view:active { transform:translate(2px,2px); box-shadow:1px 1px 0 #173C2B; }
+body[data-store-style="domestic-modular"] .product-card { transition:transform .42s cubic-bezier(.16,1,.3,1),box-shadow .42s,border-color .42s; }
+body[data-store-style="domestic-modular"] .product-card:hover { transform:translateY(-7px) rotate(.25deg); box-shadow:0 20px 40px rgba(23,60,43,.14); border-color:#173C2B; }
+body[data-store-style="domestic-modular"] .product-card:nth-child(even):hover { transform:translateY(-7px) rotate(-.25deg); }
+body[data-store-style="domestic-modular"] .product-media img,
+body[data-store-style="domestic-modular"] .product-media svg { transition:transform .65s cubic-bezier(.16,1,.3,1); transform-origin:50% 75%; }
+body[data-store-style="domestic-modular"] .product-card:hover .product-media img,
+body[data-store-style="domestic-modular"] .product-card:hover .product-media svg { transform:translateY(-7px) scale(1.025); }
+body[data-store-style="domestic-modular"] .category-strip button:hover svg { animation:home-category-pop .5s cubic-bezier(.34,1.56,.64,1); }
+@supports (animation-timeline:view()) {
+  body[data-store-style="domestic-modular"] .product-card { animation:home-card-dock linear both; animation-timeline:view(); animation-range:entry 4% cover 30%; }
+  body[data-store-style="domestic-modular"] .how-steps article,body[data-store-style="domestic-modular"] .trust-cards article { animation:home-card-dock linear both; animation-timeline:view(); animation-range:entry 4% cover 30%; }
+}
+@keyframes home-slide-in { from { opacity:0; transform:translateX(-32px); } to { opacity:1; transform:none; } }
+@keyframes home-tool-drop { from { opacity:0; transform:translateY(-28px) rotate(-2deg); } to { opacity:1; transform:none; } }
+@keyframes home-ticket-click { from { opacity:0; transform:translate(18px,-14px) rotate(3deg) scale(.92); } to { opacity:1; transform:none; } }
+@keyframes home-card-dock { from { opacity:.25; transform:translateY(30px) scale(.975); } to { opacity:1; transform:none; } }
+@keyframes home-category-pop { 50% { transform:translateY(-5px) rotate(-4deg); } }
+@keyframes home-dial { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce) { body[data-store-style="domestic-modular"] *,body[data-store-style="domestic-modular"] *::before,body[data-store-style="domestic-modular"] *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+
 /* weekend-toolbox: Todo en Casa behaves like a clear, useful household index */
 body[data-store-style="domestic-modular"] {
   --paper: #E5EEDB;

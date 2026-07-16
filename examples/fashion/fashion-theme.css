@@ -655,6 +655,46 @@ body {
   }
 }
 
+/* motion-signature-fashion: a living campaign sheet, cut and revealed in layers. */
+body[data-store-style="campaign-editorial"] ::selection { background: #BD1243; color: #FFF9F1; }
+body[data-store-style="campaign-editorial"] :focus-visible { outline: 3px solid #17376D; outline-offset: 4px; }
+body[data-store-style="campaign-editorial"] .hero-copy > *,
+body[data-store-style="campaign-editorial"] .hero-visual,
+body[data-store-style="campaign-editorial"] .hero-ticket-wrap {
+  animation: fashion-campaign-in .9s cubic-bezier(.16,1,.3,1) both;
+}
+body[data-store-style="campaign-editorial"] .hero-copy h1 { animation-delay: .08s; }
+body[data-store-style="campaign-editorial"] .hero-lead { animation-delay: .16s; }
+body[data-store-style="campaign-editorial"] .hero-actions { animation-delay: .24s; }
+body[data-store-style="campaign-editorial"] .hero-visual { animation-delay: .12s; }
+body[data-store-style="campaign-editorial"] .hero-ticket-wrap { animation-delay: .3s; }
+body[data-store-style="campaign-editorial"] .hero-visual::after { animation: fashion-lens 8s ease-in-out infinite; }
+body[data-store-style="campaign-editorial"] .hero-tag { animation: fashion-tag 5s ease-in-out infinite; transform-origin: 50% 100%; }
+body[data-store-style="campaign-editorial"] .cart-trigger,
+body[data-store-style="campaign-editorial"] .button,
+body[data-store-style="campaign-editorial"] .quick-view,
+body[data-store-style="campaign-editorial"] .product-card { transition-timing-function: cubic-bezier(.16,1,.3,1); }
+body[data-store-style="campaign-editorial"] .cart-trigger:active,
+body[data-store-style="campaign-editorial"] .button:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 #17376D; }
+body[data-store-style="campaign-editorial"] .product-card { isolation:isolate; }
+body[data-store-style="campaign-editorial"] .product-card::before { content:""; position:absolute; inset:0; z-index:4; border:1px solid transparent; pointer-events:none; transition:border-color .35s,transform .35s; }
+body[data-store-style="campaign-editorial"] .product-card:hover::before { border-color:#BD1243; transform:translate(-7px,-7px); }
+body[data-store-style="campaign-editorial"] .product-media img,
+body[data-store-style="campaign-editorial"] .product-media svg { transition:transform .7s cubic-bezier(.16,1,.3,1),filter .7s; }
+body[data-store-style="campaign-editorial"] .product-card:hover .product-media img,
+body[data-store-style="campaign-editorial"] .product-card:hover .product-media svg { transform:scale(1.035) rotate(-.5deg); filter:saturate(1.06) contrast(1.03); }
+body[data-store-style="campaign-editorial"] .quick-view::after { content:"↗"; display:inline-block; margin-left:8px; transition:transform .28s; }
+body[data-store-style="campaign-editorial"] .quick-view:hover::after { transform:translate(4px,-4px); }
+@supports (animation-timeline:view()) {
+  body[data-store-style="campaign-editorial"] .product-card { animation:fashion-card-reveal linear both; animation-timeline:view(); animation-range:entry 5% cover 32%; }
+  body[data-store-style="campaign-editorial"] .how-intro,body[data-store-style="campaign-editorial"] .how-steps,body[data-store-style="campaign-editorial"] .trust-cards { animation:fashion-card-reveal linear both; animation-timeline:view(); animation-range:entry 6% cover 35%; }
+}
+@keyframes fashion-campaign-in { from { opacity:0; transform:translateY(34px); clip-path:inset(0 0 100% 0); filter:blur(6px); } to { opacity:1; transform:none; clip-path:inset(0); filter:none; } }
+@keyframes fashion-card-reveal { from { opacity:.15; transform:translateY(36px); clip-path:inset(0 0 18% 0); } to { opacity:1; transform:none; clip-path:inset(0); } }
+@keyframes fashion-tag { 50% { transform:rotate(2deg) translateY(-5px); } }
+@keyframes fashion-lens { 50% { transform:translate3d(1.5%,-1%,0) scale(1.025); } }
+@media (prefers-reduced-motion:reduce) { body[data-store-style="campaign-editorial"] *,body[data-store-style="campaign-editorial"] *::before,body[data-store-style="campaign-editorial"] *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+
 /* runway-lookbook: Lucía is an editorial selection, never a generic shop skin */
 body[data-store-style="campaign-editorial"] {
   --paper: #F1EEE9;

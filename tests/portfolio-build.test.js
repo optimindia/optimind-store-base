@@ -36,14 +36,18 @@ test('el build publica el portfolio y las tres tiendas', () => {
   const fashionTheme = fs.readFileSync(path.join(root, 'examples', 'fashion', 'fashion-theme.css'), 'utf8');
   const generalTheme = fs.readFileSync(path.join(root, 'examples', 'general', 'general-theme.css'), 'utf8');
   const artisanTheme = fs.readFileSync(path.join(root, 'examples', 'artisan', 'artisan-theme.css'), 'utf8');
+  const portfolioTheme = fs.readFileSync(path.join(root, 'showcase', 'portfolio.css'), 'utf8');
+  const portfolioMotion = fs.readFileSync(path.join(root, 'showcase', 'portfolio.js'), 'utf8');
   assert.match(fashionTheme, /atelier-select/);
   assert.match(fashionTheme, /runway-lookbook/);
   assert.match(fashionTheme, /fashion-type-reset/);
   assert.match(fashionTheme, /mobile-copy-guard/);
+  assert.match(fashionTheme, /motion-signature-fashion/);
   assert.match(generalTheme, /utility-switch/);
   assert.match(generalTheme, /weekend-toolbox/);
   assert.match(generalTheme, /home-detail-pass/);
   assert.match(generalTheme, /mobile-copy-guard/);
+  assert.match(generalTheme, /motion-signature-home/);
   assert.match(artisanTheme, /archive-drawer/);
   assert.match(artisanTheme, /high-contrast-archive/);
   assert.match(artisanTheme, /roots-detail-pass/);
@@ -52,6 +56,10 @@ test('el build publica el portfolio y las tres tiendas', () => {
   assert.match(artisanTheme, /--paper:\s*#10241F/);
   assert.match(artisanTheme, /@media \(max-width: 960px\)[\s\S]*material-archive"\] \.hero-ticket-wrap/);
   assert.match(artisanTheme, /mobile-copy-guard/);
+  assert.match(artisanTheme, /motion-signature-roots/);
+  assert.match(portfolioTheme, /motion-signature-portfolio/);
+  assert.match(portfolioMotion, /IntersectionObserver/);
+  assert.match(portfolioMotion, /prefers-reduced-motion/);
 });
 
 test('el chequeo de sintaxis revisa los scripts que el proyecto publica', () => {
