@@ -655,6 +655,25 @@ body {
   }
 }
 
+@media (max-width: 960px) {
+  html,
+  body { overflow-x: clip; }
+
+  body[data-store-style="campaign-editorial"] .hero {
+    width: calc(100vw - 48px);
+    min-width: 0;
+  }
+
+  body[data-store-style="campaign-editorial"] .hero-copy,
+  body[data-store-style="campaign-editorial"] .hero-lead {
+    width: min(100%, calc(100vw - 48px));
+    min-width: 0;
+    max-width: calc(100vw - 48px);
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+}
+
 /* atelier-select: a quiet editorial rail, not a generic add-to-cart button */
 body[data-store-style="campaign-editorial"] .product-grid {
   gap: 42px 24px;
@@ -760,4 +779,12 @@ body[data-store-style="campaign-editorial"] .cart-count {
 @media (max-width: 640px) {
   body[data-store-style="campaign-editorial"] .product-grid { gap: 34px 16px; }
   body[data-store-style="campaign-editorial"] .quick-view { min-height: 44px; }
+
+  /* mobile-copy-guard */
+  body[data-store-style="campaign-editorial"] .hero-copy,
+  body[data-store-style="campaign-editorial"] .hero-lead {
+    width: min(100%, calc(100vw - 48px));
+    min-width: 0;
+    max-width: calc(100vw - 48px);
+  }
 }

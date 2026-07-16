@@ -654,6 +654,25 @@ body {
   }
 }
 
+@media (max-width: 960px) {
+  html,
+  body { overflow-x: clip; }
+
+  body[data-store-style="domestic-modular"] .hero {
+    width: calc(100vw - 48px);
+    min-width: 0;
+  }
+
+  body[data-store-style="domestic-modular"] .hero-copy,
+  body[data-store-style="domestic-modular"] .hero-lead {
+    width: min(100%, calc(100vw - 48px));
+    min-width: 0;
+    max-width: calc(100vw - 48px);
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+}
+
 /* utility-switch: domestic modules stay still and reveal an obvious action rail */
 body[data-store-style="domestic-modular"] .product-grid {
   gap: 16px;
@@ -770,4 +789,12 @@ body[data-store-style="domestic-modular"] .cart-count {
   body[data-store-style="domestic-modular"] .product-card,
   body[data-store-style="domestic-modular"] .product-card:first-child { grid-column: 1 / -1; }
   body[data-store-style="domestic-modular"] .quick-view { min-height: 44px; }
+
+  /* mobile-copy-guard */
+  body[data-store-style="domestic-modular"] .hero-copy,
+  body[data-store-style="domestic-modular"] .hero-lead {
+    width: min(100%, calc(100vw - 48px));
+    min-width: 0;
+    max-width: calc(100vw - 48px);
+  }
 }

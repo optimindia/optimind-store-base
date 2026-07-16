@@ -37,9 +37,13 @@ test('el build publica el portfolio y las tres tiendas', () => {
   const generalTheme = fs.readFileSync(path.join(root, 'examples', 'general', 'general-theme.css'), 'utf8');
   const artisanTheme = fs.readFileSync(path.join(root, 'examples', 'artisan', 'artisan-theme.css'), 'utf8');
   assert.match(fashionTheme, /atelier-select/);
+  assert.match(fashionTheme, /mobile-copy-guard/);
   assert.match(generalTheme, /utility-switch/);
+  assert.match(generalTheme, /mobile-copy-guard/);
   assert.match(artisanTheme, /archive-drawer/);
   assert.match(artisanTheme, /--paper:\s*#10241F/);
+  assert.match(artisanTheme, /@media \(max-width: 960px\)[\s\S]*material-archive"\] \.hero-ticket-wrap/);
+  assert.match(artisanTheme, /mobile-copy-guard/);
 });
 
 test('el chequeo de sintaxis revisa los scripts que el proyecto publica', () => {
