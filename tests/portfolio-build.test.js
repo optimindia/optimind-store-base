@@ -32,6 +32,14 @@ test('el build publica el portfolio y las tres tiendas', () => {
   assert.match(artisan, /data-store-style="material-archive"/);
   assert.match(artisan, /data-product-origin/);
   assert.match(artisan, /weave-band/);
+
+  const fashionTheme = fs.readFileSync(path.join(root, 'examples', 'fashion', 'fashion-theme.css'), 'utf8');
+  const generalTheme = fs.readFileSync(path.join(root, 'examples', 'general', 'general-theme.css'), 'utf8');
+  const artisanTheme = fs.readFileSync(path.join(root, 'examples', 'artisan', 'artisan-theme.css'), 'utf8');
+  assert.match(fashionTheme, /atelier-select/);
+  assert.match(generalTheme, /utility-switch/);
+  assert.match(artisanTheme, /archive-drawer/);
+  assert.match(artisanTheme, /--paper:\s*#10241F/);
 });
 
 test('el chequeo de sintaxis revisa los scripts que el proyecto publica', () => {

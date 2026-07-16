@@ -3,15 +3,15 @@
    Sobreescribe las variables y componentes de styles.css. */
 
 :root {
-  --paper: #EDE4D1;
-  --surface: #FAF6EB;
-  --ink: #19352F;
-  --muted: #65736A;
-  --accent: #9B603A;
-  --accent-2: #C8894B;
-  --highlight: #D7C29C;
-  --line: rgba(25, 53, 47, 0.14);
-  --line-strong: rgba(25, 53, 47, 0.28);
+  --paper: #10241F;
+  --surface: #18342D;
+  --ink: #F2E7D3;
+  --muted: #B7B9A7;
+  --accent: #8E533C;
+  --accent-2: #E0B273;
+  --highlight: #26443B;
+  --line: rgba(242, 231, 211, 0.16);
+  --line-strong: rgba(242, 231, 211, 0.32);
   --danger: #9B3A3A;
   --display: 'Alegreya', 'Iowan Old Style', Georgia, serif;
   --body: 'Nunito Sans', system-ui, -apple-system, sans-serif;
@@ -19,7 +19,7 @@
   --radius-sm: 8px;
   --radius: 16px;
   --radius-lg: 24px;
-  --shadow: 0 24px 70px rgba(44, 36, 31, 0.10);
+  --shadow: 0 28px 72px rgba(0, 0, 0, 0.34);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -725,3 +725,192 @@ body[data-store-style="material-archive"] .weave-band {
 
 /* PREVIEW-OVERRIDE */
 /* .reveal{opacity:1;transform:none;filter:none} .hero{min-height:auto} */
+
+/* archive-drawer: nocturnal material archive with its own collection hardware */
+body[data-store-style="material-archive"] {
+  background:
+    radial-gradient(circle at 84% 8%, rgba(224, 178, 115, 0.12), transparent 26%),
+    var(--paper);
+  color: var(--ink);
+}
+
+body[data-store-style="material-archive"] .site-header {
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  border-bottom-color: rgba(224, 178, 115, 0.24);
+}
+
+body[data-store-style="material-archive"] .announcement {
+  background: #091814;
+  color: var(--ink);
+}
+
+body[data-store-style="material-archive"] .hero::before {
+  border-color: rgba(224, 178, 115, 0.48);
+  background: radial-gradient(circle at 30% 30%, rgba(224, 178, 115, 0.16), transparent 62%);
+}
+
+body[data-store-style="material-archive"] .weave-band {
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(90deg, rgba(224, 178, 115, 0.18) 0 2px, transparent 2px 16px),
+    #091814;
+}
+
+body[data-store-style="material-archive"] .product-grid {
+  gap: 18px;
+}
+
+body[data-store-style="material-archive"] .product-card,
+body[data-store-style="material-archive"] .product-card:first-child {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid rgba(224, 178, 115, 0.34);
+  border-radius: 0;
+  background: linear-gradient(145deg, rgba(38, 68, 59, 0.92), rgba(16, 36, 31, 0.92));
+  box-shadow: none;
+  transition: border-color 220ms ease, background 220ms ease;
+}
+
+body[data-store-style="material-archive"] .product-card::before {
+  display: none;
+}
+
+body[data-store-style="material-archive"] .product-card:hover {
+  border-color: var(--accent-2);
+  background: linear-gradient(145deg, #2B4A40, var(--surface));
+}
+
+body[data-store-style="material-archive"] .product-media,
+body[data-store-style="material-archive"] .product-card:first-child .product-media {
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  background: #0B1A16;
+}
+
+body[data-store-style="material-archive"] .product-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(224, 178, 115, 0.14), transparent 42%, rgba(16, 36, 31, 0.42));
+}
+
+body[data-store-style="material-archive"] .product-media:hover img,
+body[data-store-style="material-archive"] .product-media:focus-visible img {
+  transform: none;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+body[data-store-style="material-archive"] .quick-view {
+  right: 0;
+  bottom: 0;
+  min-height: 38px;
+  padding: 9px 12px;
+  border-radius: 0;
+  background: var(--accent-2);
+  color: #10241F;
+  transform: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body[data-store-style="material-archive"] .product-info {
+  padding-top: 15px;
+}
+
+body[data-store-style="material-archive"] .product-info h3,
+body[data-store-style="material-archive"] .cart-line h3 {
+  color: var(--ink);
+}
+
+body[data-store-style="material-archive"] .product-summary {
+  min-height: 42px;
+  color: var(--muted);
+}
+
+body[data-store-style="material-archive"] .card-add {
+  min-height: 46px;
+  margin-top: 12px;
+  padding: 10px 13px;
+  border: 1px solid var(--accent-2);
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent-2);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+body[data-store-style="material-archive"] .card-add:hover:not(:disabled) {
+  padding: 10px 13px;
+  border-color: var(--accent-2);
+  background: var(--accent-2);
+  color: #10241F;
+}
+
+body[data-store-style="material-archive"] .cart-trigger {
+  min-height: 48px;
+  border: 1px solid var(--accent-2);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+body[data-store-style="material-archive"] .cart-trigger:hover {
+  transform: none;
+  background: var(--accent-2);
+  color: #10241F;
+}
+
+body[data-store-style="material-archive"] .cart-count {
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--ink);
+}
+
+body[data-store-style="material-archive"] .cart-panel,
+body[data-store-style="material-archive"] .cart-footer,
+body[data-store-style="material-archive"] .product-dialog {
+  background: #10241F;
+  color: var(--ink);
+}
+
+body[data-store-style="material-archive"] .cart-panel {
+  border-left: 1px solid var(--accent-2);
+}
+
+body[data-store-style="material-archive"] .cart-header,
+body[data-store-style="material-archive"] .cart-footer,
+body[data-store-style="material-archive"] .cart-line {
+  border-color: rgba(224, 178, 115, 0.28);
+}
+
+body[data-store-style="material-archive"] .cart-footer::after {
+  background: repeating-linear-gradient(90deg, var(--accent-2) 0 1px, transparent 1px 10px);
+}
+
+body[data-store-style="material-archive"] .checkout-dialog {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+@media (max-width: 960px) {
+  body[data-store-style="material-archive"] .product-card,
+  body[data-store-style="material-archive"] .product-card:first-child { grid-column: span 6; }
+}
+
+@media (max-width: 640px) {
+  body[data-store-style="material-archive"] .product-card,
+  body[data-store-style="material-archive"] .product-card:first-child { grid-column: 1 / -1; }
+  body[data-store-style="material-archive"] .quick-view { min-height: 44px; }
+}
