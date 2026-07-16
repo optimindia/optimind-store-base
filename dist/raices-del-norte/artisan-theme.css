@@ -899,6 +899,96 @@ body[data-store-style="material-archive"] .cart-footer::after {
   background: repeating-linear-gradient(90deg, var(--accent-2) 0 1px, transparent 1px 10px);
 }
 
+/* archive-search-table: a quiet material index, never a generic filter box */
+body[data-store-style="material-archive"] .shop-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  gap: 15px 34px;
+  padding: 18px 0 16px;
+  border: 0;
+  border-top: 1px solid rgba(224, 178, 115, 0.42);
+  border-radius: 0;
+  background: transparent;
+}
+
+body[data-store-style="material-archive"] .search-field {
+  min-height: 48px;
+  gap: 12px;
+  padding: 0 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(242, 231, 211, 0.30);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+body[data-store-style="material-archive"] .search-field svg {
+  color: var(--accent-2);
+}
+
+body[data-store-style="material-archive"] .search-field input {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+body[data-store-style="material-archive"] .search-field input::placeholder {
+  color: color-mix(in srgb, var(--muted) 86%, transparent);
+}
+
+body[data-store-style="material-archive"] .search-field:focus-within {
+  border-color: var(--accent-2);
+  box-shadow: 0 2px 0 var(--accent-2);
+}
+
+body[data-store-style="material-archive"] .filter-chips {
+  grid-column: 1 / -1;
+  gap: 8px;
+  min-width: 0;
+}
+
+body[data-store-style="material-archive"] .filter-chips button {
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid rgba(224, 178, 115, 0.28);
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+body[data-store-style="material-archive"] .filter-chips button:hover,
+body[data-store-style="material-archive"] .filter-chips button.is-active {
+  border-color: var(--accent-2);
+  background: var(--accent);
+  color: var(--ink);
+}
+
+body[data-store-style="material-archive"] .sort-field {
+  min-height: 48px;
+  gap: 10px;
+  padding: 0 0 0 20px;
+  border-left: 1px solid rgba(224, 178, 115, 0.24);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+body[data-store-style="material-archive"] .sort-field select {
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 14px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 body[data-store-style="material-archive"] .checkout-dialog {
   background: var(--surface);
   color: var(--ink);
@@ -965,5 +1055,32 @@ body[data-store-style="material-archive"] .checkout-dialog {
     width: min(100%, calc(100vw - 48px));
     min-width: 0;
     max-width: calc(100vw - 48px);
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-store-style="material-archive"] .shop-tools {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-block: 16px;
+  }
+
+  body[data-store-style="material-archive"] .filter-chips {
+    grid-column: 1;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  body[data-store-style="material-archive"] .filter-chips::-webkit-scrollbar { display: none; }
+  body[data-store-style="material-archive"] .filter-chips button { flex: 0 0 auto; }
+
+  body[data-store-style="material-archive"] .sort-field {
+    min-height: 42px;
+    justify-content: space-between;
+    padding: 0;
+    border-top: 1px solid rgba(224, 178, 115, 0.24);
+    border-left: 0;
   }
 }

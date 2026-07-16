@@ -41,6 +41,7 @@ test('el build publica el portfolio y las tres tiendas', () => {
   assert.match(generalTheme, /utility-switch/);
   assert.match(generalTheme, /mobile-copy-guard/);
   assert.match(artisanTheme, /archive-drawer/);
+  assert.match(artisanTheme, /archive-search-table/);
   assert.match(artisanTheme, /--paper:\s*#10241F/);
   assert.match(artisanTheme, /@media \(max-width: 960px\)[\s\S]*material-archive"\] \.hero-ticket-wrap/);
   assert.match(artisanTheme, /mobile-copy-guard/);
