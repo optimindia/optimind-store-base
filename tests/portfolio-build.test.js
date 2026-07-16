@@ -23,4 +23,9 @@ test('el build publica el portfolio y las tres tiendas', () => {
   const landing = fs.readFileSync(path.join(root, 'dist', 'index.html'), 'utf8');
   assert.match(landing, /Esto podr\u00eda ser/);
   assert.match(landing, /5492616027055/);
+
+  const fashion = fs.readFileSync(path.join(root, 'examples', 'fashion', 'index.html'), 'utf8');
+  const general = fs.readFileSync(path.join(root, 'examples', 'general', 'index.html'), 'utf8');
+  assert.match(fashion, /data-store-style="campaign-editorial"/);
+  assert.match(general, /data-store-style="domestic-modular"/);
 });
