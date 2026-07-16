@@ -1046,3 +1046,34 @@ body[data-store-style="campaign-editorial"] .cart-count {
     overflow-wrap: normal;
   }
 }
+
+/* campaign-contrast-pass: this step is read, not treated as background texture. */
+body[data-store-style="campaign-editorial"] .how-section {
+  background: #980D36;
+  color: #FFFDF9;
+}
+
+body[data-store-style="campaign-editorial"] .how-section .eyebrow.light,
+body[data-store-style="campaign-editorial"] .how-section .how-intro h2,
+body[data-store-style="campaign-editorial"] .how-section .how-steps h3 {
+  color: #FFFDF9;
+}
+
+body[data-store-style="campaign-editorial"] .how-section .eyebrow.light > span {
+  background: #FFFDF9;
+}
+
+body[data-store-style="campaign-editorial"] .how-section .how-intro > p:last-child,
+body[data-store-style="campaign-editorial"] .how-section .how-steps p {
+  color: rgba(255, 253, 249, 0.9);
+}
+
+body[data-store-style="campaign-editorial"] .how-section .how-steps li {
+  border-color: rgba(255, 253, 249, 0.36);
+}
+
+body[data-store-style="campaign-editorial"] .how-section .step-number {
+  background: #FFFDF9;
+  color: #17376D;
+  box-shadow: 3px 3px 0 #17376D;
+}
