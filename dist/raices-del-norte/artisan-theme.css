@@ -1306,3 +1306,98 @@ body[data-store-style="material-archive"] .category-strip button:hover { transfo
 @keyframes roots-piece-reveal { from { opacity:.15; transform:translateY(35px); clip-path:inset(14% 0 0 0); } to { opacity:1; transform:none; clip-path:inset(0); } }
 @keyframes roots-seal { 50% { transform:rotate(-4deg) scale(1.04); } }
 @media (prefers-reduced-motion:reduce) { body[data-store-style="material-archive"] *,body[data-store-style="material-archive"] *::before,body[data-store-style="material-archive"] *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+
+/* roots-dialog-contrast: the product sheet reads like a lit archive card, never washed out. */
+body[data-store-style="material-archive"] .product-dialog {
+  background: #082219;
+  color: #FFF6E5;
+  border: 1px solid #E9AD57;
+  box-shadow: 0 28px 74px rgba(0, 0, 0, 0.58), 9px 9px 0 #A8442A;
+}
+
+body[data-store-style="material-archive"] .dialog-product-copy {
+  background: #082219;
+  color: #FFF6E5;
+}
+
+body[data-store-style="material-archive"] .dialog-product-copy h2,
+body[data-store-style="material-archive"] .variant-fieldset legend,
+body[data-store-style="material-archive"] .dialog-actions label {
+  color: #FFF6E5;
+}
+
+body[data-store-style="material-archive"] .dialog-product-copy .product-category {
+  color: #FF9A70;
+  font-weight: 800;
+}
+
+body[data-store-style="material-archive"] .dialog-price {
+  color: #FFD36E;
+  text-shadow: none;
+}
+
+body[data-store-style="material-archive"] .dialog-description,
+body[data-store-style="material-archive"] .stock-message {
+  color: #F1E0C3;
+}
+
+body[data-store-style="material-archive"] .variant-fieldset span {
+  border-color: #DFAE50;
+  background: #10382A;
+  color: #FFF6E5;
+}
+
+body[data-store-style="material-archive"] .variant-fieldset input:checked + span {
+  border-color: #FFD36E;
+  background: #E16E43;
+  color: #FFFDF5;
+  box-shadow: 3px 3px 0 #FFD36E;
+}
+
+body[data-store-style="material-archive"] .stock-message::before {
+  background: #85C99A;
+}
+
+body[data-store-style="material-archive"] .dialog-actions {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 211, 110, 0.42);
+}
+
+body[data-store-style="material-archive"] .dialog-actions select {
+  border-color: #FFD36E;
+  background: #10382A;
+  color: #FFFDF5;
+  font-weight: 800;
+}
+
+body[data-store-style="material-archive"] .dialog-actions .button-primary {
+  background: #FFD36E;
+  color: #082219;
+  box-shadow: 5px 5px 0 #A8442A;
+}
+
+body[data-store-style="material-archive"] .dialog-actions .button-primary:hover {
+  background: #FFF6E5;
+  color: #082219;
+}
+
+body[data-store-style="material-archive"] .dialog-close {
+  border-color: #FFD36E;
+  background: #FFF6E5;
+  color: #082219;
+}
+
+body[data-store-style="material-archive"] .dialog-close:hover {
+  background: #FFD36E;
+  color: #082219;
+}
+
+@media (max-width: 640px) {
+  body[data-store-style="material-archive"] .product-dialog {
+    box-shadow: 6px 6px 0 #A8442A;
+  }
+
+  body[data-store-style="material-archive"] .dialog-actions {
+    gap: 12px;
+  }
+}
