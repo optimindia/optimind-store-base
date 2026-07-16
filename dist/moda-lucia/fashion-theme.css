@@ -1162,3 +1162,68 @@ body[data-store-style="campaign-editorial"] .cart-trigger:hover .cart-count {
   border-left-color: rgba(255, 253, 249, 0.6);
   color: #FFFDF9;
 }
+
+/* collection-rail-pass: categories guide a selection; they do not become a dashboard. */
+body[data-store-style="campaign-editorial"] .category-strip {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: min(100% - 48px, 1120px);
+  margin: 0 auto;
+  padding: 18px 0 20px;
+  border: 0;
+  border-bottom: 1px solid rgba(33, 19, 26, 0.16);
+  background: transparent;
+}
+
+body[data-store-style="campaign-editorial"] .category-strip button,
+body[data-store-style="campaign-editorial"] .category-strip button:last-child {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 8px 14px;
+  gap: 9px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #21131A;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+}
+
+body[data-store-style="campaign-editorial"] .category-strip button span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #17376D;
+  border-radius: 50%;
+  color: #B2153E;
+  font-size: 11px;
+}
+
+body[data-store-style="campaign-editorial"] .category-strip button:first-child {
+  background: #F6E7EB;
+  color: #B2153E;
+}
+
+body[data-store-style="campaign-editorial"] .category-strip button:hover,
+body[data-store-style="campaign-editorial"] .category-strip button:focus-visible {
+  background: #21131A;
+  color: #FFFDF9;
+}
+
+body[data-store-style="campaign-editorial"] .category-strip button:hover span,
+body[data-store-style="campaign-editorial"] .category-strip button:focus-visible span {
+  border-color: #FFFDF9;
+  color: #FF8CA6;
+}
+
+@media (max-width: 640px) {
+  body[data-store-style="campaign-editorial"] .category-strip {
+    justify-content: flex-start;
+    width: 100%;
+    padding: 14px 18px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}
