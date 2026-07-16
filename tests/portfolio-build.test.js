@@ -43,6 +43,7 @@ test('el build publica el portfolio y las tres tiendas', () => {
   assert.match(fashionTheme, /fashion-type-reset/);
   assert.match(fashionTheme, /mobile-copy-guard/);
   assert.match(fashionTheme, /motion-signature-fashion/);
+  assert.match(fashionTheme, /fashion-hero-density/);
   assert.match(generalTheme, /utility-switch/);
   assert.match(generalTheme, /weekend-toolbox/);
   assert.match(generalTheme, /home-detail-pass/);

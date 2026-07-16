@@ -695,6 +695,64 @@ body[data-store-style="campaign-editorial"] .quick-view:hover::after { transform
 @keyframes fashion-lens { 50% { transform:translate3d(1.5%,-1%,0) scale(1.025); } }
 @media (prefers-reduced-motion:reduce) { body[data-store-style="campaign-editorial"] *,body[data-store-style="campaign-editorial"] *::before,body[data-store-style="campaign-editorial"] *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } }
 
+/* fashion-hero-density: campaign type and ticket share one compact, intentional frame. */
+@media (min-width: 961px) {
+  body[data-store-style="campaign-editorial"] .hero {
+    grid-template-columns: minmax(520px, 0.88fr) minmax(410px, 0.62fr);
+    align-items: center;
+    gap: clamp(24px, 3vw, 54px);
+    min-height: min(690px, calc(100svh - 108px));
+    padding: clamp(60px, 5vw, 84px) 0 clamp(54px, 4vw, 72px);
+  }
+
+  body[data-store-style="campaign-editorial"] .hero-copy {
+    max-width: 640px;
+  }
+
+  body[data-store-style="campaign-editorial"] .hero h1 {
+    max-width: 10.8ch;
+    font-size: clamp(68px, 6.2vw, 118px);
+    line-height: 0.76;
+    text-wrap: balance;
+  }
+
+  body[data-store-style="campaign-editorial"] .hero-lead {
+    max-width: 34ch;
+    margin-top: 23px;
+    font-size: clamp(17px, 1.2vw, 19px);
+    line-height: 1.45;
+  }
+
+  body[data-store-style="campaign-editorial"] .hero-actions {
+    margin-top: 26px;
+  }
+
+  body[data-store-style="campaign-editorial"] .trust-inline {
+    margin-top: 25px;
+  }
+
+  body[data-store-style="campaign-editorial"] .hero-ticket-wrap {
+    width: min(100%, 450px);
+    align-self: center;
+    justify-self: start;
+  }
+
+  body[data-store-style="campaign-editorial"] .live-ticket {
+    min-height: 430px;
+    padding: 29px 33px 34px;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1220px) {
+  body[data-store-style="campaign-editorial"] .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 0.68fr);
+  }
+
+  body[data-store-style="campaign-editorial"] .hero h1 {
+    font-size: clamp(68px, 7.2vw, 96px);
+  }
+}
+
 /* runway-lookbook: Lucía is an editorial selection, never a generic shop skin */
 body[data-store-style="campaign-editorial"] {
   --paper: #F1EEE9;
