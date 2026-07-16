@@ -1227,3 +1227,14 @@ body[data-store-style="campaign-editorial"] .category-strip button:focus-visible
     scrollbar-width: none;
   }
 }
+
+/* announcement-contrast-pass: the shipping amount is the important part of this sentence. */
+body[data-store-style="campaign-editorial"] .announcement strong {
+  color: #FF9AB0;
+  font-weight: 700;
+}
+
+body[data-store-style="campaign-editorial"] .announcement > span {
+  color: #FF9AB0;
+  opacity: 0.9;
+}
