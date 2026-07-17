@@ -15,3 +15,9 @@ test('build publishes the dashboard route', () => {
   assert.ok(build.includes("const adminDir = path.join(root, 'admin')"));
   assert.ok(build.includes("copyDir(adminDir, path.join(outDir, 'admin'))"));
 });
+
+test('magic links send the production dashboard as the redirect target', () => {
+  const app = fs.readFileSync(path.join(root, 'admin', 'app.js'), 'utf8');
+  assert.ok(app.includes("email_redirect_to:`${location.origin}${location.pathname}`"));
+  assert.ok(!app.includes("options:{emailRedirectTo:"));
+});
