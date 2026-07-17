@@ -45,3 +45,10 @@ test('password login card remains contained on small screens', () => {
   const styles = fs.readFileSync(path.join(root, 'admin', 'styles.css'), 'utf8');
   assert.ok(styles.includes('@media(max-width:800px){.auth-card{width:100%;max-width:calc(100vw - 48px);min-width:0;padding:32px}'));
 });
+
+test('private store-role helper calls the private platform-admin helper', () => {
+  const migration = fs.readFileSync(path.join(root, 'supabase', 'migrations', '20260716212000_repair_private_role_helper.sql'), 'utf8');
+  assert.ok(migration.includes('create or replace function private.has_store_role'));
+  assert.ok(migration.includes('private.is_platform_admin()'));
+  assert.ok(!migration.includes('public.is_platform_admin()'));
+});
