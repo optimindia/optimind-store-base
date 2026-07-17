@@ -7,7 +7,7 @@
   }
 
   function inventoryStatus(product, variant) {
-    if (!variant?.is_available) return 'out_of_stock';
+    if (variant && !variant.is_available) return 'out_of_stock';
     const tracked = variant?.stock_quantity ?? product.stock_quantity;
     if ((variant?.stock_quantity !== null && variant?.stock_quantity !== undefined) || product.track_inventory) {
       if (tracked <= 0) return 'out_of_stock';

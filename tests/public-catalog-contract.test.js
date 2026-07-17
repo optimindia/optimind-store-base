@@ -28,6 +28,19 @@ test('normalizes the public payload without exposing private store fields', () =
   assert.equal('plan' in catalog.store, false);
 });
 
+test('keeps an untracked product without variants available', () => {
+  const noVariantPayload = {
+    ...payload,
+    products: [{
+      ...payload.products[0],
+      variants: []
+    }]
+  };
+
+  const catalog = normalizeStorefront(noVariantPayload);
+  assert.equal(catalog.products[0].stockStatus, 'in_stock');
+});
+
 test('uses the local catalog when the public request fails', async () => {
   const fallback = { products: [{ id: 'local-product' }] };
   const result = await loadStorefront({ slug: 'moda-lucia', supabaseUrl: 'https://example.test', publishableKey: 'key' }, fallback, async () => ({ ok: false }));

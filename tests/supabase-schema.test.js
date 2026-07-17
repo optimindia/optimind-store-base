@@ -26,6 +26,13 @@ const policyMigrationPath = path.join(
   'migrations',
   '20260716192000_optimize_membership_policies.sql'
 );
+const encodingRepairMigrationPath = path.join(
+  __dirname,
+  '..',
+  'supabase',
+  'migrations',
+  '20260716200000_repair_mojibake_seed_text.sql'
+);
 
 test('the commerce migration defines the tenant boundary and public storefront contract', () => {
   const sql = fs.readFileSync(migrationPath, 'utf8').toLowerCase();
@@ -77,4 +84,12 @@ test('the policy optimization separates membership writes from reads', () => {
   assert.ok(sql.includes('for insert to authenticated'));
   assert.ok(sql.includes('for update to authenticated'));
   assert.ok(sql.includes('for delete to authenticated'));
+});
+
+test('the encoding repair migrates corrupted seed text without changing valid rows', () => {
+  const sql = fs.readFileSync(encodingRepairMigrationPath, 'utf8').toLowerCase();
+  assert.ok(sql.includes("convert_from(convert_to(name, 'win1252'), 'utf8')"));
+  assert.ok(sql.includes('position(chr(195) in'));
+  assert.ok(sql.includes('public.products'));
+  assert.ok(sql.includes('public.store_settings'));
 });
