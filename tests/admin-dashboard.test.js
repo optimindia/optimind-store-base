@@ -21,3 +21,9 @@ test('magic links send the production dashboard as the redirect target', () => {
   assert.ok(app.includes("email_redirect_to:`${location.origin}${location.pathname}`"));
   assert.ok(!app.includes("options:{emailRedirectTo:"));
 });
+
+test('dashboard explains the temporary Supabase email rate limit', () => {
+  const app = fs.readFileSync(path.join(root, 'admin', 'app.js'), 'utf8');
+  assert.ok(app.includes("r.status===429"));
+  assert.ok(app.includes('Esperá un minuto antes de pedir otro enlace.'));
+});
