@@ -39,7 +39,7 @@ if (!slug || !/^[-a-z0-9]+$/.test(slug)) {
 
 const repoRoot = path.join(__dirname, '..');
 const templateDir = path.join(repoRoot, 'templates', 'default');
-const outputDir = path.join(repoRoot, 'dist', 'clients', slug);
+const outputDir = path.join(repoRoot, 'clients', slug);
 
 if (fs.existsSync(outputDir)) {
   console.error('La tienda "' + slug + '" ya existe en ' + outputDir);
@@ -269,7 +269,7 @@ fs.mkdirSync(outputDir, { recursive: true });
 copyDir(templateDir, outputDir);
 
 // Copiar motor reutilizable a la raíz del output.
-for (const file of ['store-core.js', 'analytics.js', 'app.js']) {
+for (const file of ['store-core.js', 'analytics.js', 'catalog-api.js', 'app.js']) {
   fs.copyFileSync(path.join(repoRoot, 'src', file), path.join(outputDir, file));
 }
 

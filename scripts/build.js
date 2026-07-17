@@ -11,6 +11,7 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const outDir = path.join(root, 'dist');
 const showcaseDir = path.join(root, 'showcase');
+const clientsDir = path.join(root, 'clients');
 
 const stores = [
   {
@@ -568,6 +569,19 @@ for (const store of stores) {
   }
   copyDir(src, dst, ['captura.png', 'captura-full.png', 'captura-full2.png', 'captura-full3.png', 'captura-inicio.png', 'captura-completa.png', '.git']);
   console.log(`  ✓ ${store.slug}`);
+}
+
+console.log('Copiando tiendas de clientes...');
+if (fs.existsSync(clientsDir)) {
+  const reservedSlugs = new Set(stores.map((store) => store.slug));
+  for (const entry of fs.readdirSync(clientsDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (reservedSlugs.has(entry.name)) {
+      throw new Error(`El cliente ${entry.name} usa una ruta reservada por una tienda de referencia.`);
+    }
+    copyDir(path.join(clientsDir, entry.name), path.join(outDir, entry.name));
+    console.log(`  Cliente: ${entry.name}`);
+  }
 }
 
 console.log('Copiando dossier de portfolio...');

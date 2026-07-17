@@ -64,6 +64,22 @@ test('el build publica el portfolio y las tres tiendas', () => {
   assert.match(portfolioMotion, /prefers-reduced-motion/);
 });
 
+test('el build conserva una tienda de cliente generada fuera de dist', () => {
+  const slug = 'cliente-prueba-persistente';
+  const source = path.join(root, 'clients', slug);
+  const output = path.join(root, 'dist', slug);
+  fs.mkdirSync(source, { recursive: true });
+  fs.writeFileSync(path.join(source, 'index.html'), '<!doctype html><title>Cliente</title>');
+
+  try {
+    execFileSync(process.execPath, ['scripts/build.js'], { cwd: root });
+    assert.ok(fs.existsSync(path.join(output, 'index.html')));
+  } finally {
+    fs.rmSync(source, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
 test('el chequeo de sintaxis revisa los scripts que el proyecto publica', () => {
   assert.doesNotThrow(() => {
     execFileSync('npm.cmd', ['run', 'check'], {

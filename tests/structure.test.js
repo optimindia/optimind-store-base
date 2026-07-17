@@ -42,6 +42,7 @@ test('los scripts cargan en el orden de dependencias', () => {
     'products.js',
     'store-core.js',
     'analytics.js',
+    'catalog-api.js',
     'app.js'
   ]);
 });

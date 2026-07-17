@@ -1,6 +1,7 @@
 'use strict';
 
-(function () {
+(async function () {
+  if (window.OptiMindCatalog?.ready) await window.OptiMindCatalog.ready;
   const config = window.STORE_CONFIG;
   const Core = window.StoreCore;
   const Analytics = window.StoreAnalytics;
