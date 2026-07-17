@@ -12,6 +12,7 @@ const root = path.join(__dirname, '..');
 const outDir = path.join(root, 'dist');
 const showcaseDir = path.join(root, 'showcase');
 const clientsDir = path.join(root, 'clients');
+const adminDir = path.join(root, 'admin');
 
 const stores = [
   {
@@ -586,5 +587,10 @@ if (fs.existsSync(clientsDir)) {
 
 console.log('Copiando dossier de portfolio...');
 copyDir(showcaseDir, outDir);
+
+if (fs.existsSync(adminDir)) {
+  copyDir(adminDir, path.join(outDir, 'admin'));
+  console.log('  Panel privado: admin');
+}
 
 console.log('Build completo en dist/');

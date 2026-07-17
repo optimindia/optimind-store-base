@@ -1,0 +1,3 @@
+-- Reserved migration marker for dashboard access setup.
+-- Administrator membership is assigned by OptiMind after the user signs in,
+-- so no browser-callable privileged function is introduced.
